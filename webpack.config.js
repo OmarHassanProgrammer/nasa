@@ -7,7 +7,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 module.exports = {
     entry: path.resolve(appDirectory, "src/app.ts"), //path to the main .ts file
     output: {
-        filename: "js/bundleName.js", //name for the js file that is created/compiled in memory
+        filename: "js/bundleName" + Math.floor(Math.random() * 1000) + ".js", //name for the js file that is created/compiled in memory
         clean: true,
     },
     resolve: {
@@ -41,6 +41,14 @@ module.exports = {
                 {
                     from: 'public/assets', // Source folder to copy
                     to: 'assets',       // Destination folder in the 'public' directory
+                },
+            ],
+        }),
+        new CopyWebpackPlugin({
+            patterns: [
+                {
+                    from: 'public/*.css', // Source folder to copy
+                    to: '/',       // Destination folder in the 'public' directory
                 },
             ],
         })

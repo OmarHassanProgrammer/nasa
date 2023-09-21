@@ -228,6 +228,14 @@ class App {
                 var clickedMesh = pickResult.pickedMesh;
                 if(clickedMesh && ["mercury", "venus", "earth", "mars", "jupiter", "saturn", "uranus", "neptune"].includes(clickedMesh.name)) {
                     mode = MODE.Planet;
+                    var title = document.getElementById("text");
+                    var div = document.getElementById("data");
+                    if(div) {
+                        div.style.height = "500px";
+                        div.style.opacity = "1";
+                    }
+                    if(clickedMesh.name && title)
+                        title.textContent = clickedMesh.name;
                     activePlanet = clickedMesh.name;
                     var initialPosition = clickedMesh.position.clone();
                     var initialScaling = clickedMesh.scaling.clone();
@@ -376,6 +384,11 @@ class App {
                 }
             } else if(mode == MODE.Planet) {
                 mode = MODE.Solar;
+                var div = document.getElementById("data");
+                if(div) {
+                    div.style.height = "0";
+                    div.style.opacity = "0";
+                }
                 for (const key in planets) {
                     if (Object.prototype.hasOwnProperty.call(planets, key)) {
                         const mesh = planets[key];
