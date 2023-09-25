@@ -1,6 +1,16 @@
-#data {
+@font-face {
+    font-family: 'Mooli'; 
+    src: url('assets/Mooli/Mooli-Regular.ttf') format('woff2')
+}
+body {
+    font-family: 'Mooli', sans-serif; 
+}
+
+.data {
     position: fixed;
     height: 0px;
+    display: flex;
+    flex-direction: column;
     opacity: 0;
     width: 400px;
     top: 50%;
@@ -13,7 +23,7 @@ clip-path: polygon(10px 0%, 390px 0%, 100% 10px, 100% 490px, 390px 100%, 10px 10
     transition: height 1s ease-in-out,
         opacity 0.5s ease-in-out;
 }
-#data:before {
+.data:before {
     content: "";
     position: absolute;
     width: 14px;
@@ -23,7 +33,7 @@ clip-path: polygon(10px 0%, 390px 0%, 100% 10px, 100% 490px, 390px 100%, 10px 10
     top: calc(-16px / 2);
     right: calc(-14px / 2);
 }
-#data:after {
+.data:after {
     content: "";
     position: absolute;
     width: 14px;
@@ -33,14 +43,14 @@ clip-path: polygon(10px 0%, 390px 0%, 100% 10px, 100% 490px, 390px 100%, 10px 10
     top: calc(-16px / 2);
     left: calc(-16px / 2);
 }
-#data > #container {
+.data > .container {
     position: absolute;
     top: 0;
     left: 0;
     bottom: 0;
     right: 0;
 }
-#data > #container:after {
+.data > .container:after {
     content: "";
     position: absolute;
     width: 15px;
@@ -50,7 +60,7 @@ clip-path: polygon(10px 0%, 390px 0%, 100% 10px, 100% 490px, 390px 100%, 10px 10
     bottom: calc(-16px / 2);
     left: calc(-16px / 2);
 }
-#data > #container:before {
+.data > .container:before {
     content: "";
     position: absolute;
     width: 15px;
@@ -61,7 +71,7 @@ clip-path: polygon(10px 0%, 390px 0%, 100% 10px, 100% 490px, 390px 100%, 10px 10
     right: calc(-16px / 2);
 }
 
-#title {
+.container > .title {
     margin: 20px auto;
     position: relative;
     height: 50px;
@@ -71,7 +81,7 @@ clip-path: polygon(10px 0%, 390px 0%, 100% 10px, 100% 490px, 390px 100%, 10px 10
 clip-path: polygon(10px 0%, 190px 0%, 100% 10px, 100% 40px, 190px 100%, 10px 100%, 0% 40px, 0% 10px);
     text-transform: uppercase;
 }
-#title:before {
+.container > .title:before {
     content: "";
     position: absolute;
     width: 14px;
@@ -81,7 +91,7 @@ clip-path: polygon(10px 0%, 190px 0%, 100% 10px, 100% 40px, 190px 100%, 10px 100
     top: calc(-16px / 2);
     right: calc(-14px / 2);
 }
-#title:after {
+.container > .title:after {
     content: "";
     position: absolute;
     width: 14px;
@@ -91,7 +101,7 @@ clip-path: polygon(10px 0%, 190px 0%, 100% 10px, 100% 40px, 190px 100%, 10px 100
     top: calc(-16px / 2);
     left: calc(-16px / 2);
 }
-#title > #title-container {
+.container > .title > .title-container {
     position: absolute;
     top: 0;
     left: 0;
@@ -105,7 +115,7 @@ clip-path: polygon(10px 0%, 190px 0%, 100% 10px, 100% 40px, 190px 100%, 10px 100
     font-weight: bold;
     color: #fff;
 }
-#title > #title-container:after {
+.container > .title > .title-container:after {
     content: "";
     position: absolute;
     width: 15px;
@@ -115,7 +125,7 @@ clip-path: polygon(10px 0%, 190px 0%, 100% 10px, 100% 40px, 190px 100%, 10px 100
     bottom: calc(-16px / 2);
     left: calc(-16px / 2);
 }
-#title > #title-container:before {
+.container > .title > .title-container:before {
     content: "";
     position: absolute;
     width: 15px;
@@ -124,4 +134,173 @@ clip-path: polygon(10px 0%, 190px 0%, 100% 10px, 100% 40px, 190px 100%, 10px 100
     transform: rotate(132deg);
     bottom: calc(-16px / 2);
     right: calc(-16px / 2);
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-around;
+}
+.button {
+    margin: 20px auto;
+    position: relative;
+    height: 40px;
+    width: 150px;
+    border: 1px solid #2995b9;
+    -webkit-clip-path: polygon(50% 0%, 145px 0%, 100% 10px, 100% 35px, 145px 100%, 10px 100%, 0% 35px, 0% 10px);
+clip-path: polygon(10px 0%, 145px 0%, 100% 10px, 100% 35px, 145px 100%, 10px 100%, 0% 35px, 0% 10px);
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+}
+.button:hover {
+    background-color: #2995b977;
+}
+.button:before {
+    content: "";
+    position: absolute;
+    width: 13px;
+    height: 8px;
+    border-bottom: 1px solid #2995b9;
+    transform: rotate(55deg);
+    top: calc(-5px);
+    right: calc(-6px);
+}
+.button:after {
+    content: "";
+    position: absolute;
+    width: 13px;
+    height: 8px;
+    border-bottom: 1px solid #2995b9;
+    transform: rotate(-45deg);
+    top: calc(-3px);
+    left: calc(-6px);
+}
+.button > .button-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    color: #fff;
+}
+.button > .button-container:after {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 8px;
+    border-bottom: 2px solid #2995b9;
+    transform: rotate(-144deg);
+    bottom: calc(-5px);
+    left: calc(-4px);
+}
+.button > .button-container:before {
+    content: "";
+    position: absolute;
+    width: 9px;
+    height: 8px;
+    border-bottom: 2px solid #2995b9;
+    transform: rotate(132deg);
+    bottom: calc(-5px);
+    right: calc(-5px);
+}
+.content {
+    max-height: 320px;
+    overflow-y: scroll;
+    padding: 5px 10px;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 5px
+}
+.content::-webkit-scrollbar {
+    width: 0; 
+}
+.content > .title {
+    font-size: 1.5rem;
+    margin-top: 13px;
+    font-weight: bold;
+}
+.last {
+    margin-bottom: 10px;
+}
+.number .f {
+    display: inline-block;
+    min-width: 200px;
+}
+.closeContainer {
+    position: fixed;
+    opacity: 0;
+    height: 40px;
+    width: 40px;
+    top: 100px;
+    transform: translateY(-50%);
+    right: 100px;
+    border: 1px solid #2995b9;
+    background: #0005;
+    cursor: pointer;
+    -webkit-clip-path: polygon(50% 0%, 35px 0%, 100% 10px, 100% 35px, 35px 100%, 10px 100%, 0% 35px, 0% 10px);
+clip-path: polygon(10px 0%, 35px 0%, 100% 10px, 100% 35px, 35px 100%, 10px 100%, 0% 35px, 0% 10px);
+    transition: opacity 0.5s ease-in-out,
+                background-color 0.5s ease-in-out;
+}
+.closeContainer:hover {
+    background-color: #2995b977;
+}
+
+.closeContainer:after {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 8px;
+    border-bottom: 2px solid #2995b9;
+    transform: rotate(-144deg);
+    bottom: calc(-5px);
+    left: calc(-4px);
+}
+.closeContainer:before {
+    content: "";
+    position: absolute;
+    width: 9px;
+    height: 8px;
+    border-bottom: 2px solid #2995b9;
+    transform: rotate(132deg);
+    bottom: calc(-5px);
+    right: calc(-5px);
+}
+.close {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+.close:before {
+    content: "";
+    position: absolute;
+    width: 13px;
+    height: 8px;
+    border-bottom: 1px solid #2995b9;
+    transform: rotate(55deg);
+    top: calc(-4px);
+    right: calc(-6px);
+}
+.close:after {
+    content: "";
+    position: absolute;
+    width: 13px;
+    height: 8px;
+    border-bottom: 1px solid #2995b9;
+    transform: rotate(-45deg);
+    top: calc(-4px);
+    left: calc(-4px);
+}
+.closeContainer svg {
+    width: 30px;
+    height: 30px;
+    fill: #fff;
 }
