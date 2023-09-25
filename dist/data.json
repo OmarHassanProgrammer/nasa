@@ -1,0 +1,545 @@
+{
+    "mercury": {
+        "data": [
+            {
+                "type": "number",
+                "value": "EQUATORIAL DIAMETER: 4 879 KM"
+            },
+            {
+                "type": "number",
+                "value": "MASS: 3.3 X 1023 KG"
+            },
+            {
+                "type": "number",
+                "value": "MEAN DIST.FROM SUN: 58 M KM"
+            },
+            {
+                "type": "number",
+                "value": "ROTATION PERIOD: 59 DAYS"
+            },
+            {
+                "type": "number",
+                "value": "ROTATION PERIOD: 59 DAYS"
+            },
+            {
+                "type": "number",
+                "value": "SOLAR ORBIT PERIOD: 88 DAYS"
+            },
+            {
+                "type": "number",
+                "value": "SURFACE GRAVITY: 3.7 M/S2"
+            },
+            {
+                "type": "number",
+                "value": "SURFACE TEMPERATURE: 167°C"
+            },
+            {
+                "type": "number",
+                "value": "TEMPERATURE - DAY: 473°C"
+            },
+            {
+                "type": "number",
+                "value": "TEMPERATURE - NIGHT: -183°C"
+            },
+            {
+                "type": "text",
+                "value": "Mercury is the innermost and smallest planet of the Solar System. Because it has almost no atmosphere to retain heat, Mercury's surface experiences the greatest temperature variation of all the planets"
+            },
+            {
+                "type": "title",
+                "value": "OBSERVATION"
+            },
+            {
+                "type": "text",
+                "value": "Mercury appears as a morning or evening star from Earth, but due to it's proximity to Sun, it is very hard to see. Still, Mercury can be observed at least twice a year: in spring at dusk and in autumn before dawn."
+            }
+        ],
+        "monuments": [
+
+        ]
+    },
+    "venus": {
+        "data": [
+            {
+                "type": "number",
+                "value": "EQUATORIAL DIAMETER: 12 104 KM"
+            },
+            {
+                "type": "number",
+                "value": "MASS: 4.9 X 1024 KG"
+            },
+            {
+                "type": "number",
+                "value": "MEAN DIST.FROM SUN: 108 M KM"
+            },
+            {
+                "type": "number",
+                "value": "ROTATION PERIOD: 243 DAYS"
+            },
+            {
+                "type": "number",
+                "value": "SOLAR ORBIT PERIOD: 225 DAYS"
+            },
+            {
+                "type": "number",
+                "value": "SURFACE GRAVITY: 8.9 M/S2"
+            },
+            {
+                "type": "number",
+                "value": "SURFACE TEMPERATURE: 462°C"
+            },
+            {
+                "type": "text",
+                "value": "Although Venus has very similar size and interior structure as Earth, its vulcanic surface and extremely hot and dense atmosphere makes it one of the most inhospitable places in the Solar System."
+            },
+            {
+                "type": "title",
+                "value": "ATMOSPHERE"
+            },
+            {
+                "type": "text",
+                "value": "Thick clouds of sulfuric acid and dust reflect most of the Sun's light back to space, while carbon dioxide traps the Sun's heat inside the atmosphere, causing a runaway greenhouse effect. The atmospheric pressure on the surface of Venus is 92 times greater than on Earth."
+            },
+            {
+                "type": "title",
+                "value": "OBSERVATION"
+            },
+            {
+                "type": "text",
+                "value": "Venus is one of the brightest objects in our night sky -second only to the Moon. It appears as either an evening or a morning star."
+            }       
+        ],
+        "monuments": [
+
+        ]
+    },
+    "earth": {
+        "data": [
+            {
+                "type": "number", 
+                "value": "EQUATORIAL DIAMETER: 12 756 KM"
+            },
+            {
+                "type": "number",
+                "value": "MASS: 6 X 1024 KG"
+            },
+            {
+                "type": "number",
+                "value": "MEAN DIST.FROM SUN: 150 M KM"
+            },
+            {
+                "type": "number",
+                "value": "ROTATION PERIOD: 23H 56M"
+            },
+            {
+                "type": "number",
+                "value": "ROTATION PERIOD: 23H 56M"
+            },
+            {
+                "type": "number",
+                "value": "SOLAR ORBIT PERIOD: 1 YEAR"
+            },
+            {
+                "type": "number",
+                "value": "SOLAR ORBIT PERIOD: 1 YEAR"
+            },
+            {
+                "type": "number",
+                "value": "SURFACE GRAVITY: 9.8 M/S2"
+            },
+            {
+                "type": "number",
+                "value": "SURFACE TEMPERATURE: 15°C"
+            },
+            {
+                "type": "text",
+                "value": "Our homeworld is the densest of the eight planets in the Solar System. It is also the largest of the four terrestrial planets."
+            },
+            {
+                "type": "title",
+                "value": "SURFACE"
+            },
+            {
+                "type": "text",
+                "value": "About 71% of the Earth's surface is covered by salt water oceans, and the remaining 30% is taken up by the seven continental landmasses. Earth's outer surface is also divided into several rigid segments, or tectonic plates, that migrate across the surface over periods of millions of years"
+            },
+            {
+                "type": "title",
+                "value": "AXIAL TILT"
+            },
+            {
+                "type": "text",
+                "value": "Today, the Earth is tilted on its axis by 23.4°, producing seasonal variations in climate and weather across the surface of the planet during the course of a year."
+            },
+            {
+                "type": "title",
+                "value": "MAG.FIELD"
+            },
+            {
+                "type": "text",
+                "value": "The Earth's magnetic field is generated within the molten outer core region of the planet and extends outwards to form the magnetosphere: a barrier surrounding the Earth, deflecting particles of the solar wind and protecting the Earth from Sun's radiation."
+            }
+        ],
+        "monuments": {
+            "latitude": 0,
+            "longitude": 0,
+            "name": "",
+            "details": [
+                "",
+                "",
+                "",
+                "",
+                "",
+                ""
+            ],
+            "video": ""
+        }
+    },
+    "mars": {
+        "data": [
+            {
+                "type": "number",
+                "value": "EQUATORIAL DIAMETER: 6 792 KM"
+            },
+            {
+                "type": "number",
+                "value": "MASS: 6.4 X 1023 KG"
+            },
+            {
+                "type": "number",
+                "value": "MEAN DIST.FROM SUN: 229 M KM"
+            },
+            {
+                "type": "number",
+                "value": "ROTATION PERIOD: 1.03 DAY"
+            },
+            {
+                "type": "number",
+                "value": "SOLAR ORBIT PERIOD: 1.88 YEAR"
+            },
+            {
+                "type": "number",
+                "value": "SURFACE GRAVITY: 3.7 M/S2"
+            },
+            {
+                "type": "number",
+                "value": "SURFACE TEMPERATURE: -63°C"
+            },
+            {
+                "type": "number",
+                "value": "TEMPERATURE - SUMMER: 17°C"
+            },
+            {
+                "type": "number",
+                "value": "TEMPERATURE - WINTER: -140°C"
+            },
+            {
+                "type": "text",
+                "value": "Mars is the fourth planet from the Sun and the second smallest planet in the Solar System. The reddish appearance of Mars' surface is caused by iron oxide (rust)"
+            },
+            {
+                "type": "title",
+                "value": "EARTH-LIKE"
+            },
+            {
+                "type": "text",
+                "value": "While the Mars is about half as big as the Earth, there are still many similarities: Mars has a rocky surface and polar ice caps, the days on Mars are only 40 minutes longer, the axial tilt gives it similar seasons to ours (although each lasts about twice as long"
+            },
+            {
+                "type": "title",
+                "value": "SURFACE"
+            },
+            {
+                "type": "text",
+                "value": "Mars has a dramatic landscape, with towering volcanoes and a great canyon system. Of all the planets in the Solar System, it has the highest mountain, Olympus Mons, and the largest canyon, Valles Marineris"
+            },
+            {
+                "type": "title",
+                "value": "WATER"
+            },
+            {
+                "type": "text",
+                "value": "There is strong evidence that the Martian atmosphere was once far denser than it is now, and that water once ran freely on its surface. There is also mounting evidence that much of this water remains locked away underground."
+            },
+            {
+                "type": "title",
+                "value": "MOONS"
+            },
+            {
+                "type": "text",
+                "value": "Mars has two small natural satellites, Phobos and Deimos, that orbit very close to the planet. These moons may be captured asteroids. It has been predicted that in about 50 million years, Phobos will either crash into Mars' surface or break up into a ring structure around the planet."
+            },
+            {
+                "type": "title",
+                "value": "MISSIONS"
+            },
+            {
+                "type": "text",
+                "value": "Mars is the focus of intense study, with two rovers (exploration rover Opportunity and science laboratory Curiosity) operating on the surface, while three international missions orbit the planet: NASA's Mars Odyssey and Mars Reconnaissance Orbiter and ESA's Mars Express."
+            },
+            {
+                "type": "title",
+                "value": "OBSERVATION"
+            },
+            {
+                "type": "text",
+                "value": "Mars can easily be seen from Earth with the naked eye, as can its reddish coloring. Its apparent magnitude is surpassed by the Sun, the Moon, Venus and Jupiter but it can briefly match Jupiter's brightness at certain points in its orbit."
+            }
+        ],
+        "monuments": [
+
+        ]
+    },
+    "jupiter": {
+        "data": [
+            {
+                "type": "number",
+                "value": "EQUATORIAL DIAMETER: 142 984 KM"
+            },
+            {
+                "type": "number",
+                "value": "MASS: 1.9 X 1027 KG"
+            },
+            {
+                "type": "number",
+                "value": "MEAN DIST.FROM SUN: 779 M KM"
+            },
+            {
+                "type": "number",
+                "value": "ROTATION PERIOD: 9H 55M"
+            },
+            {
+                "type": "number",
+                "value": "SOLAR ORBIT PERIOD: 11.9 YEARS"
+            },
+            {
+                "type": "number",
+                "value": "SURFACE GRAVITY: 25 M/S2"
+            },
+            {
+                "type": "number",
+                "value": "SURFACE TEMPERATURE: -120°C"
+            },
+            {
+                "type": "text",
+                "value": "Jupiter is the largest planet of the Solar System, with a mass 2.5 greater than all of the rest of the planets combined - but still only one-thousandth that of the Sun."
+            },
+            {
+                "type": "title",
+                "value": "STAR-LIKE"
+            },
+            {
+                "type": "text",
+                "value": "Jupiter is the planet most like the Sun in terms of its composition. Although Jupiter would still need to be about 75 times as massive to fuse hydrogen and become a star, it would only need to be 13 times as massive to burn deuterium and become a brown dwarf."
+            },
+            {
+                "type": "title",
+                "value": "ATMOSPHERE"
+            },
+            {
+                "type": "text",
+                "value": "Jupiter spins on its axis faster than any other planet. Because of this rotation, Jupiter's atmosphere is subject to high winds, which cause the atmosphere to form distinct bands of colour, like swirling vortices and gigantic anticyclonic storms."
+            },
+            {
+                "type": "title",
+                "value": "MOONS"
+            },
+            {
+                "type": "text",
+                "value": "Jupiter governs the largest number of moons of any planet, with the current official total being 79. The four largest are the Galilean moons: lo, Europa, Ganymede, and Callisto. Ganymede, the largest moon in the Solar System, has a diameter greater than that of the planet Mercury."
+            },
+            {
+                "type": "title",
+                "value": "OBSERVATION"
+            },
+            {
+                "type": "text",
+                "value": "Jupiter is the fourth brightest object in our skies after the Sun, Moon and Venus. Because the orbit of Jupiter is outside the Earth's, the planet always appears nearly fully illuminated when viewed through Earth-based telescopes."
+            }
+        ],
+        "monuments": [
+
+        ]
+    },
+    "saturn": {
+        "data": [
+            {
+                "type": "number",
+                "value": "EQUATORIAL DIAMETER: 120 536 KM"
+            },
+            {
+                "type": "number",
+                "value": "MASS: 5.7 X 1026 KG"
+            },
+            {
+                "type": "number",
+                "value": "MEAN DIST.FROM SUN: 9.58 AU"
+            },
+            {
+                "type": "number",
+                "value": "ROTATION PERIOD: 10H 39M"
+            },
+            {
+                "type": "number",
+                "value": "SOLAR ORBIT PERIOD: 29 YEARS"
+            },
+            {
+                "type": "number",
+                "value": "SURFACE GRAVITY: 10.4 M/S2"
+            },
+            {
+                "type": "number",
+                "value": "SURFACE TEMPERATURE: -139°C"
+            },
+            {
+                "type": "text",
+                "value": "Saturn is the sixth planet from the Sun and the second largest planet in the Solar System. Until the invention of modern telescope, Saturn was regarded as the outermost of the known planets."
+            },
+            {
+                "type": "title",
+                "value": "MASS"
+            },
+            {
+                "type": "text",
+                "value": "Although the second largest, Saturn is the least dense of all the planets in the Solar System, with only one-eighth the density of Earth (but nine times. its diameter). It is also the only planet that is less dense than water."
+            },
+            {
+                "type": "title",
+                "value": "RING"
+            },
+            {
+                "type": "text",
+                "value": "While the other gas giants also have ring systems, Saturn's is larger and more visible than any other in the Solar System. The rings are composed of water ice crystals and a smaller amount of rock, ranging in size from specks of dust to a few particles as large as mountains."
+            },
+            {
+                "type": "title",
+                "value": "MOONS"
+            },
+            {
+                "type": "text",
+                "value": "Saturn has at least 150 moons and moonlets. The precise figure is uncertain as it is difficult to draw a distinction between a large ring particle and a tiny moon. Some of Saturn's moons act as shepherd moons to confine rings and prevent them from spreading out."
+            },
+            {
+                "type": "title",
+                "value": "OBSERVATION"
+            },
+            {
+                "type": "text",
+                "value": "Saturn appears to the naked eye in the night sky as a bright, yellowish point of light. Magnifying at least 30x resolves Saturn's rings"
+            }
+        ],
+        "monuments": [
+
+        ]
+    },
+    "uranus": {
+        "data": [
+            {
+                "type": "number",
+                "value": "EQUATORIAL DIAMETER: 51 118 KM"
+            },
+            {
+                "type": "number",
+                "value": "MASS: 8.7 X 1025 KG"
+            },
+            {
+                "type": "number",
+                "value": "MEAN DIST.FROM SUN: 19.2 AU"
+            },
+            {
+                "type": "number",
+                "value": "ROTATION PERIOD: 17H 14M"
+            },
+            {
+                "type": "number",
+                "value": "SOLAR ORBIT PERIOD: 84 YEARS"
+            },
+            {
+                "type": "number",
+                "value": "SURFACE GRAVITY: 8.7 M/S2"
+            },
+            {
+                "type": "number",
+                "value": "SURFACE TEMPERATURE: -210°C"
+            },
+            {
+                "type": "text",
+                "value": "Uranus is the third largest of the Solar System's gas giants. It is the coldest planet in the Solar System"
+            },
+            {
+                "type": "title",
+                "value": "DISCOVERY"
+            },
+            {
+                "type": "text",
+                "value": "Uranus was the first to be discovered by the use of the modern telescope, with its discovery credited to the English astronomer William Herschel in 1781."
+            },
+            {
+                "type": "title",
+                "value": "AXIAL TILT"
+            },
+            {
+                "type": "text",
+                "value": "Uranus has an axial tilt of 97.77°, meaning it effectively rolls around the Sun 'on its side' compared to the other planets in the Solar System."
+            },
+            {
+                "type": "title",
+                "value": "OBSERVATION"
+            },
+            {
+                "type": "text",
+                "value": "While in Opposition (from the Sun, relative to the Earth), Uranus becomes visible to the naked-eye. It would appear as a faint star under dark sky conditions."
+            }
+        ],
+        "monuments": [
+
+        ]
+    },
+    "neptune": {
+        "data": [
+            {
+                "type": "number",
+                "value": "EQUATORIAL DIAMETER: 49 528 KM"
+            },
+            {
+                "type": "number",
+                "value": "MASS: 1.02 X 1026 KG"
+            },
+            {
+                "type": "number",
+                "value": "MEAN DIST.FROM SUN: 30.1 AU"
+            },
+            {
+                "type": "number",
+                "value": "ROTATION PERIOD: 16H 06M"
+            },
+            {
+                "type": "number",
+                "value": "SOLAR ORBIT PERIOD: 165 YEARS"
+            },
+            {
+                "type": "number",
+                "value": "SURFACE GRAVITY: 11.2 M/S2"
+            },
+            {
+                "type": "number",
+                "value": "SURFACE TEMPERATURE: -200°C"
+            },
+            {
+                "type": "text",
+                "value": "Neptune, is the eight and officially farthest planet from the Sun. It is the smallest but also the most dense of gas giants. Neptune has a surface gravity that is only surpassed by Jupiter."
+            },
+            {
+                "type": "title",
+                "value": "DISCOVERY"
+            },
+            {
+                "type": "text",
+                "value": "Neptune was the first planet to be discovered purely on the basis of mathematical prediction rather than by direct observation. Since it's discovery in 1846, Neptune has completed only one orbit of the Sun"
+            }
+        ],
+        "monuments": [
+
+        ]
+    }
+}
