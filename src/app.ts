@@ -20,7 +20,12 @@ import { Engine,
     Material,
     AnimationGroup,
     Sound,
-    Space } from "@babylonjs/core";
+    Space,
+    Tools,
+    Axis,
+    Quaternion,
+    DynamicTexture,
+    ShaderMaterial} from "@babylonjs/core";
 
 enum MODE {
     Solar = 1,
@@ -37,6 +42,10 @@ let activePlanetScale : Vector3;
 let camera: ArcRotateCamera;
 var canvas : HTMLCanvasElement;
 let data : any;
+var light1: HemisphericLight;
+var light2: HemisphericLight | null;
+var points : Mesh[] = [];
+var clickedPoint : Mesh | null;
 
 class App {
 
@@ -56,8 +65,8 @@ class App {
         camera.wheelPrecision = 100;
         camera.panningSensibility = 1;
         camera.lowerRadiusLimit = 2; 
-        camera.upperRadiusLimit = 10;
-        var light1: HemisphericLight = new HemisphericLight("light1", new Vector3(2, 0, 0), scene);
+        camera.upperRadiusLimit = 9;
+        light1 = new HemisphericLight("light1", new Vector3(2, 0, 0), scene);
         
         /*var backgroundMusic = new Sound("backgroundMusic", "assets/bgMusic.mp3", scene, null, {
             loop: true,
@@ -76,7 +85,7 @@ class App {
             'neptune': 0.672
         };
 
-        var url = "data.json";
+        var url = "data.json?v=1";
         fetch(url)
             .then(function(response) {
                 if (!response.ok) {
@@ -209,119 +218,128 @@ class App {
             }
         });
 
+        var closeBtn = document.querySelector(".closeContainer") as HTMLElement;
+        if(closeBtn) {
+            closeBtn.addEventListener("click", () => {
+                closeBtn.style.opacity = "0";
+                points.forEach(point => {
+                    point.dispose();
+                });
+                points = [];
+                for (const key in planets) {
+                    if (Object.prototype.hasOwnProperty.call(planets, key)) {
+                        const mesh = planets[key];
+                        mesh.position.z -= 20;
+                    }
+                }
+                for (const key in planets) {
+                    if (Object.prototype.hasOwnProperty.call(planets, key)) {
+                        const mesh = planets[key];
+                        if(mesh.name != activePlanet)
+                            scene.beginAnimation(mesh, 30, 0, false);
+                    }
+                }
+                var animationFramesPos = [
+                    {
+                        frame: 0,
+                        value: planets[activePlanet].position.clone()
+                    },
+                    {
+                        frame: 30,
+                        value:  activePlanetPos
+                    }
+                ];
+                var animationFramesScale = [
+                    {
+                        frame: 0,
+                        value: planets[activePlanet].scaling.clone()
+                    },
+                    {
+                        frame: 30,
+                        value: activePlanetScale
+                    }
+                ];
+                
+                var animationPos = new Animation(
+                    "openPlanet",
+                    "position",
+                    30,
+                    Animation.ANIMATIONTYPE_VECTOR3,
+                    Animation.ANIMATIONLOOPMODE_CONSTANT 
+                );
+                var animationScale = new Animation(
+                    "openPlanet",
+                    "scaling",
+                    30,
+                    Animation.ANIMATIONTYPE_VECTOR3,
+                    Animation.ANIMATIONLOOPMODE_CONSTANT 
+                );
+                camera.target = new Vector3(0, 0, 0);
+                
+                animationPos.setKeys(animationFramesPos);
+                animationScale.setKeys(animationFramesScale);
+                if(activePlanet == "saturn") {
+                    planets['saturn'].animations = [animationPos, animationScale];
+                    scene.beginAnimation(planets['saturn'], 0, 60, false);
+                    planets['saturnRings'].animations = [animationPos, animationScale];
+                    scene.beginAnimation(planets['saturnRings'], 0, 60, false);
+                    planets['saturnRingsDown'].animations = [animationPos, animationScale];
+                    scene.beginAnimation(planets['saturnRingsDown'], 0, 60, false);
+                } else {
+                    planets[activePlanet].animations = [animationPos, animationScale];
+                    scene.beginAnimation(planets[activePlanet], 0, 60, false);
+                }
+                var cameraPositionAnimation = new Animation(
+                    "positionAnimation",
+                    "position",
+                    30,
+                    Animation.ANIMATIONTYPE_VECTOR3,
+                    Animation.ANIMATIONLOOPMODE_CONSTANT
+                );
+                var cameraPositionKeyframes = [];
+                cameraPositionKeyframes.push({
+                    frame: 0,
+                    value: camera.position.clone() // Start with the current camera position
+                });
+                cameraPositionKeyframes.push({
+                    frame: 30, // Animation duration in frames
+                    value: new Vector3(0, 0, 2) // End with a new position
+                });
+                var cameraRotationAnimation = new Animation(
+                    "rotationAnimation",
+                    "rotation",
+                    30,
+                    Animation.ANIMATIONTYPE_VECTOR3,
+                    Animation.ANIMATIONLOOPMODE_CONSTANT
+                );
+                var cameraRotationKeyframes = [];
+                cameraRotationKeyframes.push({
+                    frame: 0,
+                    value: camera.rotation.clone() // Start with the current camera position
+                });
+                cameraRotationKeyframes.push({
+                    frame: 30, // Animation duration in frames
+                    value: new Vector3(Math.PI / 2, Math.PI / 2, 0) // End with a new position
+                });
+                cameraPositionAnimation.setKeys(cameraPositionKeyframes);
+                cameraRotationAnimation.setKeys(cameraRotationKeyframes);
+                var cameraAnimationGroup = new AnimationGroup("cameraAnimationGroup2");
+                cameraAnimationGroup.addTargetedAnimation(cameraPositionAnimation, camera);
+                cameraAnimationGroup.addTargetedAnimation(cameraRotationAnimation, camera);
+                cameraAnimationGroup.play(false);
+                mode = MODE.Solar;
+                
+                light1.direction = new Vector3(2, 0, 0);
+                light2 = null;
+
+            });
+        }
+
         document.querySelector('.data .monuments')?.addEventListener('click', () => {
             if(mode == MODE.Planet) {
                 mode = MODE.MONUMENTS;
-
-                var closeBtn = document.querySelector(".closeContainer") as HTMLElement;
                 if(closeBtn) {
                     closeBtn.style.opacity = "1";
-                    closeBtn.addEventListener("click", () => {
-                        closeBtn.style.opacity = "0";
-                        for (const key in planets) {
-                            if (Object.prototype.hasOwnProperty.call(planets, key)) {
-                                const mesh = planets[key];
-                                mesh.position.z -= 20;
-                            }
-                        }
-                        for (const key in planets) {
-                            if (Object.prototype.hasOwnProperty.call(planets, key)) {
-                                const mesh = planets[key];
-                                if(mesh.name != activePlanet)
-                                    scene.beginAnimation(mesh, 30, 0, false);
-                            }
-                        }
-                        animationFramesPos = [
-                            {
-                                frame: 0,
-                                value: planets[activePlanet].position.clone()
-                            },
-                            {
-                                frame: 30,
-                                value:  activePlanetPos
-                            }
-                        ];
-                        animationFramesScale = [
-                            {
-                                frame: 0,
-                                value: planets[activePlanet].scaling.clone()
-                            },
-                            {
-                                frame: 30,
-                                value: activePlanetScale
-                            }
-                        ];
-                        
-                        var animationPos = new Animation(
-                            "openPlanet",
-                            "position",
-                            30,
-                            Animation.ANIMATIONTYPE_VECTOR3,
-                            Animation.ANIMATIONLOOPMODE_CONSTANT 
-                        );
-                        var animationScale = new Animation(
-                            "openPlanet",
-                            "scaling",
-                            30,
-                            Animation.ANIMATIONTYPE_VECTOR3,
-                            Animation.ANIMATIONLOOPMODE_CONSTANT 
-                        );
-                        camera.target = new Vector3(0, 0, 0);
-                        
-                        animationPos.setKeys(animationFramesPos);
-                        animationScale.setKeys(animationFramesScale);
-                        if(activePlanet == "saturn") {
-                            planets['saturn'].animations = [animationPos, animationScale];
-                            scene.beginAnimation(planets['saturn'], 0, 60, false);
-                            planets['saturnRings'].animations = [animationPos, animationScale];
-                            scene.beginAnimation(planets['saturnRings'], 0, 60, false);
-                            planets['saturnRingsDown'].animations = [animationPos, animationScale];
-                            scene.beginAnimation(planets['saturnRingsDown'], 0, 60, false);
-                        } else {
-                            planets[activePlanet].animations = [animationPos, animationScale];
-                            scene.beginAnimation(clickedMesh, 0, 60, false);
-                        }
-                        var cameraPositionAnimation = new Animation(
-                            "positionAnimation",
-                            "position",
-                            30,
-                            Animation.ANIMATIONTYPE_VECTOR3,
-                            Animation.ANIMATIONLOOPMODE_CONSTANT
-                        );
-                        var cameraPositionKeyframes = [];
-                        cameraPositionKeyframes.push({
-                            frame: 0,
-                            value: camera.position.clone() // Start with the current camera position
-                        });
-                        cameraPositionKeyframes.push({
-                            frame: 30, // Animation duration in frames
-                            value: new Vector3(0, 0, 2) // End with a new position
-                        });
-                        var cameraRotationAnimation = new Animation(
-                            "rotationAnimation",
-                            "rotation",
-                            30,
-                            Animation.ANIMATIONTYPE_VECTOR3,
-                            Animation.ANIMATIONLOOPMODE_CONSTANT
-                        );
-                        var cameraRotationKeyframes = [];
-                        cameraRotationKeyframes.push({
-                            frame: 0,
-                            value: camera.rotation.clone() // Start with the current camera position
-                        });
-                        cameraRotationKeyframes.push({
-                            frame: 30, // Animation duration in frames
-                            value: new Vector3(Math.PI / 2, Math.PI / 2, 0) // End with a new position
-                        });
-                        cameraPositionAnimation.setKeys(cameraPositionKeyframes);
-                        cameraRotationAnimation.setKeys(cameraRotationKeyframes);
-                        var cameraAnimationGroup = new AnimationGroup("cameraAnimationGroup2");
-                        cameraAnimationGroup.addTargetedAnimation(cameraPositionAnimation, camera);
-                        cameraAnimationGroup.addTargetedAnimation(cameraRotationAnimation, camera);
-                        cameraAnimationGroup.play(false);
-                        mode = MODE.Solar;
-        
-                    });
                 }
 
                 var title = document.querySelector(".title .text") as HTMLElement;
@@ -355,7 +373,7 @@ class App {
                     },
                     {
                         frame: 30,
-                        value:  new Vector3(Math.PI / 4, 0, 0)
+                        value:  new Vector3(0, Math.PI , 0)
                     }
                 ];
                 animationFramesScale = [
@@ -417,10 +435,39 @@ class App {
                         mesh.position.z += 20;
                     }
                 }
+
+                light1.direction = new Vector3(0, 1, 0);
+                light2 = new HemisphericLight("light2", new Vector3(0, -1, 0), scene);
+                data[activePlanet]['monuments'].forEach((monument : any, key : number ) => {
+                    var sphere = MeshBuilder.CreateSphere("sphere", { diameter: 0.05 }, scene);
+                    sphere.position.z = -0.75;
+                    sphere.rotateAround(new Vector3(0, 0, -2), new Vector3(1, 0, 0), monument.latitude);
+                    sphere.rotateAround(new Vector3(0, 0, -2), new Vector3(0, 1, 0), monument.longitude);
+                    /*setInterval(() => {
+                        //sphere.rotateAround(new Vector3(0, 0, -2), new Vector3(1, 0, 0), Math.PI / 50);
+                    }, 100);*/
+                    var material = new StandardMaterial("sphereMaterial", scene);
+                    material.diffuseColor = new Color3(1, 0, 0); // Red color
+                    sphere.material = material;
+                    sphere.name = key.toString();
+                    points.push(sphere);
+                });
             }
         })
 
         scene.onPointerDown = this.ClickEvent;
+
+
+        scene.onPointerMove = function (evt, pickInfo) {
+            console.log(pickInfo.pickedMesh);
+            points.forEach(point => {
+                if (pickInfo.hit && pickInfo.pickedMesh === point) {
+                    scene.getEngine().getRenderingCanvas()?.classList.add('hover-pointer');
+                } else {
+                    scene.getEngine().getRenderingCanvas()?.classList.remove('hover-pointer');
+                }
+            });
+        };
 
         let lastTimestamp = performance.now();
         engine.runRenderLoop(() => {
@@ -499,7 +546,6 @@ class App {
                 var clickedMesh = pickResult.pickedMesh;
                 if(clickedMesh && ["mercury", "venus", "earth", "mars", "jupiter", "saturn", "uranus", "neptune"].includes(clickedMesh.name)) {
                     mode = MODE.Planet;
-                    
                     var title = document.querySelector(".title .text") as HTMLElement;
                     var div = document.querySelector(".data") as HTMLElement;
                     var content = document.querySelector(".data .content") as HTMLElement;
@@ -518,6 +564,14 @@ class App {
                                     content.innerHTML += `<div class="element ${element.type}">${element.value}</div>`;
                                 }
                             });
+                        }
+                        var btns = document.querySelector(".buttons") as HTMLElement;
+                        if(!["mars", "saturn"].includes(clickedMesh.name)) {
+                            div.classList.add("no-btns");
+                            btns.style.display = "none";
+                        } else {
+                            div.classList.remove("no-btns");
+                            btns.style.display = "flex";
                         }
                     }
                     if(clickedMesh.name && title)
@@ -669,7 +723,7 @@ class App {
                     cameraAnimationGroup.addTargetedAnimation(cameraRotationAnimation, camera);
                     cameraAnimationGroup.play(false);
                 }
-            } else if(mode == MODE.Planet) {
+            } else if (mode == MODE.Planet) {
                 mode = MODE.Solar;  
                 var title = document.querySelector(".title .text") as HTMLElement;
                 var div = document.querySelector(".data") as HTMLElement;
@@ -682,6 +736,47 @@ class App {
                         const mesh = planets[key];
                         scene.beginAnimation(mesh, 30, 0, false);
                         
+                    }
+                }
+            } else if (mode == MODE.MONUMENTS) {
+                if(pickResult.pickedMesh){
+                    if(data[activePlanet]['monuments'].length >= parseInt(pickResult.pickedMesh.name) + 1) {
+                        let site = data[activePlanet]['monuments'][pickResult.pickedMesh.name];
+                        clickedPoint = pickResult.pickedMesh as Mesh;
+                        if (pickResult.pickedMesh.material) {
+                            var standardMaterial = pickResult.pickedMesh.material as StandardMaterial;
+                            standardMaterial.diffuseColor = new Color3(0, 1, 0);
+                        }
+                        var title = document.querySelector(".title .text") as HTMLElement;
+                        var div = document.querySelector(".data") as HTMLElement;
+                        var content = document.querySelector(".data .content") as HTMLElement;
+                        if(div) {
+                            title.innerHTML = site.name;
+                            div.classList.add("no-btns");
+                            div.style.height = "500px";
+                            div.style.opacity = "1";
+                        }
+                        if(content && data) {
+                            content.innerHTML = "";
+                            content.innerHTML += `<img class="img" src='/assets/${activePlanet}${parseInt(pickResult.pickedMesh.name) + 1}.jpg' />`;
+                            content.innerHTML += `<div class="number"><label class="f">Latitude</label><label class="l">${site.latitude}</label></div>`;
+                            content.innerHTML += `<div class="number last"><label class="f">Longitude</label><label class="l">${site.longitude}</label></div>`;
+                            content.innerHTML += `<div class="text">${site.details}</div>`;
+                            var btns = document.querySelector(".buttons") as HTMLElement;
+                            btns.style.display = "none";
+                        }
+                    } else {
+                        var title = document.querySelector(".title .text") as HTMLElement;
+                        var div = document.querySelector(".data") as HTMLElement;
+                        if(div) {
+                            div.style.height = "0";
+                            div.style.opacity = "0";
+                        }
+                        if(clickedPoint) {
+                            var standardMaterial = clickedPoint.material as StandardMaterial;
+                            standardMaterial.diffuseColor = new Color3(1, 0, 0);
+                            clickedPoint = null;
+                        }
                     }
                 }
             }

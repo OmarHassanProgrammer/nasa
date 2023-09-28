@@ -180,20 +180,7 @@
                 "value": "The Earth's magnetic field is generated within the molten outer core region of the planet and extends outwards to form the magnetosphere: a barrier surrounding the Earth, deflecting particles of the solar wind and protecting the Earth from Sun's radiation."
             }
         ],
-        "monuments": {
-            "latitude": 0,
-            "longitude": 0,
-            "name": "",
-            "details": [
-                "",
-                "",
-                "",
-                "",
-                "",
-                ""
-            ],
-            "video": ""
-        }
+        "monuments": []
     },
     "mars": {
         "data": [
@@ -287,6 +274,102 @@
             }
         ],
         "monuments": [
+            {
+                "latitude": 23,
+                "longitude": 305,
+                "name": "North Pole",
+                "details": "Our first stop, the North Pole. This ice cap is bigger than Texas, and is mostly covered in water ice and solid carbon dioxide, aka dry ice. Heading south, we'll visit Kasei Valles. It's a vast system of chasms five times longer and 10 times wider than the Grand Canyon, and scientists think it formed in a similar way. Billions of years ago, Mars was warmer, and covered with liquid water, which likely carved out valleys like this one.",
+                "video": "",
+                "image": ""
+            },
+            {
+                "latitude": 22.3,
+                "longitude": 343.5,
+                "name": "Mawrth Vallis",
+                "details": "Mawrth Vallis is another valley close by, but it looks very different from our previous spot, thanks to its multicolored layers of clay. These deposits probably formed over millennia as Mars shifted towards a colder, drier climate, and they could provide clues to the history of liquid water and possible ancient life on Mars.",
+                "video": "",
+                "image": ""
+            },
+            {
+                "latitude": 21.3,
+                "longitude": 352.2,
+                "name": "Becquerel Crater",
+                "details": "The next stop is another place that may have been teeming with life long ago, Bacquerel Crater. It's filled with rocks made of sulfate similar to ones on Earth that form after water evaporates, which has led scientists to suspect that this crater may once have been a massive lake over 160 kilometers wide.",
+                "video": "",
+                "image": ""
+            },
+            {
+                "latitude": -2.19,
+                "longitude": 342.96,
+                "name": "Iani Chaos",
+                "details": "Next stop, Iani Chaos. Now, this is one type of terrain you won't find anywhere on Earth. It's a maze of rugged cliffs and pillar-like hills called mesas that extend for 200 kilometers, and since there is nothing like it on Earth, scientists aren't exactly sure how these unique features formed. Its larger neighbor, Hydraotes Chaos, probably formed in a similar mysterious way. It stretches 350 kilometers, the same distance as New York City to Boston.",
+                "video": "",
+                "image": ""
+            },
+            {
+                "latitude": -2,
+                "longitude": 80,
+                "name": "Valles Marineris",
+                "details": "West of Hydraotes, we find one Mars's greatest attractions, Valles Marineris. It's the largest canyon in the solar system, running the length of New York to Los Angeles, and plunging four times as deep as the Grand Canyon.",
+                "video": "",
+                "image": ""
+            },
+            {
+                "latitude": -1,
+                "longitude": -76,
+                "name": "Hebes Chasma",
+                "details": "Following the canyon's main channel north, we reach Hebes Chasma. It's tiny compared to Valles Marineris, but it's worth the trek for a glimpse of the chasma's prominent mesa.",
+                "video": "",
+                "image": ""
+            },
+            {
+                "latitude": 19,
+                "longitude": -133,
+                "name": "Olympus Mons",
+                "details": "And no trip to Mars would be complete without a visit to Olympus Mons, the tallest volcano in the solar system. It covers a region the size of Arizona. It's three times as tall as Mount Everest, and can comfortably fit all the volcanoes in Hawaii.",
+                "video": "",
+                "image": ""
+            },
+            {
+                "latitude": -76,
+                "longitude": 105,
+                "name": "Promethei Planum",
+                "details": "Moving south, we'll see Promethei Planum. It's a plane near the South Pole, covered in a sheet of ice nearly one and a half times as thick as the East Antarctic Ice Sheet.",
+                "video": "",
+                "image": ""
+            },
+            {
+                "latitude": 82.619,
+                "longitude": -43.7003,
+                "name": "Rabe Crater",
+                "details": "Next, we'll swing around to Rabe Crater. It's covered in giant sand dunes 150 to 200 meters high, almost as tall as the Golden Gate Bridge",
+                "video": "",
+                "image": ""
+            },
+            {
+                "latitude": -44.1,
+                "longitude": 26.7,
+                "name": "Neukum Crater",
+                "details": "Nearing the end of our tour is one of the oldest regions of Mars that dates back to at least 3.9 billion years ago, Neukum Crater. Scientists think this crater formed from a powerful impact early in Mars's history. In fact, you can still see pockmarks left by the crash.",
+                "video": "",
+                "image": ""
+            },
+            {
+                "latitude": -5.4,
+                "longitude": 137.9,
+                "name": "Galle Crater",
+                "details": "The last crater on our tour is formally named Galle Crater, but many call it Happy Face Crater for obvious reasons.",
+                "video": "",
+                "image": ""
+            },
+            {
+                "latitude": 30,
+                "longitude": 315,
+                "name": "South Pole",
+                "details": "Finally, we've reached our last stop, the South Pole. In 2018, scientists found evidence of a liquid lake beneath the ice, which could be filled with saltwater. But while that's a promising discovery, we still have much to learn about this fascinating world, like whether life once existed in those ancient lakes, or if it still exists today, possibly somewhere underground. But perhaps the biggest question of all, could human life survive here? Maybe in the future, you won't have to imagine your Martian vacation.",
+                "video": "",
+                "image": ""
+            }
 
         ]
     },
@@ -358,7 +441,7 @@
             }
         ],
         "monuments": [
-
+            
         ]
     },
     "saturn": {
@@ -429,6 +512,54 @@
             }
         ],
         "monuments": [
+            {
+                "latitude": 0,
+                "longitude": 0,
+                "name": "",
+                "details": "",
+                "video": "",
+                "image": ""
+            },
+            {
+                "latitude": 0,
+                "longitude": 0,
+                "name": "",
+                "details": "",
+                "video": "",
+                "image": ""
+            },
+            {
+                "latitude": 0,
+                "longitude": 0,
+                "name": "",
+                "details": "",
+                "video": "",
+                "image": ""
+            },
+            {
+                "latitude": 0,
+                "longitude": 0,
+                "name": "",
+                "details": "",
+                "video": "",
+                "image": ""
+            },
+            {
+                "latitude": 0,
+                "longitude": 0,
+                "name": "",
+                "details": "",
+                "video": "",
+                "image": ""
+            },
+            {
+                "latitude": 0,
+                "longitude": 0,
+                "name": "",
+                "details": "",
+                "video": "",
+                "image": ""
+            }
 
         ]
     },
