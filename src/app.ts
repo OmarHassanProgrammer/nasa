@@ -47,6 +47,24 @@ var light2: HemisphericLight | null;
 var points : Mesh[] = [];
 var clickedPoint : Mesh | null;
 
+var sun_earth = 93;
+var distances : { [key: string]: number } = {};
+var periods : { [key: string]: number } = {};
+var start_date : Date;
+var now_date : Date;
+var end_date : Date;
+
+function formatDate(date : Date) {
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0'); // Months are zero-indexed, so add 1
+    const day = String(date.getDate()).padStart(2, '0');
+    const hours = String(date.getHours()).padStart(2, '0');
+    const minutes = String(date.getMinutes()).padStart(2, '0');
+    const seconds = String(date.getSeconds()).padStart(2, '0');
+
+    return `${year}-${month}-${day}`;
+}
+
 class App {
 
     constructor() {
@@ -84,8 +102,22 @@ class App {
             'uranus': 0.72,
             'neptune': 0.672
         };
+        distances = {
+            'mars': 140,
+            'jupiter': 391,
+            'saturn': 792,
+            'uranus': 1600,
+            'neptune': 2703
+        };
+        periods = {
+            'mars': 259,
+            'jupiter': 2000,
+            'saturn': 1156,
+            'uranus': 1600,
+            'neptune': 2703
+        };
 
-        var url = "data.json?v=1";
+        var url = "data.json?v=2";
         fetch(url)
             .then(function(response) {
                 if (!response.ok) {
@@ -95,7 +127,6 @@ class App {
             })
             .then(function(jsonData) {
                 data = jsonData;
-                console.log(data);
             })
             .catch(function(error) {
                 console.error("Fetch error:", error);
@@ -198,7 +229,7 @@ class App {
                 planets['neptune'] = result.meshes[1];
         });
         
-        var skybox = Mesh.CreateBox("skyBox", 20.0, scene);
+        var skybox = Mesh.CreateBox("skyBox", 50.0, scene);
         var skyboxMaterial = new StandardMaterial("skyBox", scene);
         skyboxMaterial.backFaceCulling = false;
         skyboxMaterial.reflectionTexture = new Texture("/assets/space4.jpg", scene, true);
@@ -225,11 +256,16 @@ class App {
                 points.forEach(point => {
                     point.dispose();
                 });
+                
+                var input = document.querySelector(".slider-container") as HTMLInputElement;
+                if(input) {
+                    input.style.display = "none";
+                }
                 points = [];
                 for (const key in planets) {
                     if (Object.prototype.hasOwnProperty.call(planets, key)) {
                         const mesh = planets[key];
-                        mesh.position.z -= 20;
+                        mesh.position.z -= 60;
                     }
                 }
                 for (const key in planets) {
@@ -332,6 +368,19 @@ class App {
                 light1.direction = new Vector3(2, 0, 0);
                 light2 = null;
 
+                
+                if(clickedPoint) {
+                    var title = document.querySelector(".title .text") as HTMLElement;
+                    var div = document.querySelector(".data") as HTMLElement;
+                    if(div) {
+                        div.style.height = "0";
+                        div.style.opacity = "0";
+                    }
+                    var standardMaterial = clickedPoint.material as StandardMaterial;
+                    standardMaterial.diffuseColor = new Color3(1, 0, 0);
+                    clickedPoint = null;
+                }
+
             });
         }
 
@@ -432,7 +481,7 @@ class App {
                 for (const key in planets) {
                     if (Object.prototype.hasOwnProperty.call(planets, key)) {
                         const mesh = planets[key];
-                        mesh.position.z += 20;
+                        mesh.position.z += 60;
                     }
                 }
 
@@ -455,11 +504,221 @@ class App {
             }
         })
 
+        document.querySelector('.data .itinerary')?.addEventListener('click', () => {
+            if(mode == MODE.Planet) {
+                mode = MODE.ITINERARY;
+                if(closeBtn) {
+                    closeBtn.style.opacity = "1";
+                }
+                var title = document.querySelector(".title .text") as HTMLElement;
+                var div = document.querySelector(".data") as HTMLElement;
+                if(div) {
+                    div.style.height = "0";
+                    div.style.opacity = "0";
+                }
+                const clickedMesh = planets[activePlanet];
+
+                var cameraPositionAnimation = new Animation(
+                    "positionAnimation",
+                    "position",
+                    30,
+                    Animation.ANIMATIONTYPE_VECTOR3,
+                    Animation.ANIMATIONLOOPMODE_CONSTANT
+                );
+                var cameraPositionKeyframes = [];
+                cameraPositionKeyframes.push({
+                    frame: 0,
+                    value: camera.position.clone() // Start with the current camera position
+                });
+                cameraPositionKeyframes.push({
+                    frame: 30, // Animation duration in frames
+                    value: new Vector3(0, 15, 0) // End with a new position
+                });
+                var cameraRotationAnimation = new Animation(
+                    "rotationAnimation",
+                    "rotation",
+                    30,
+                    Animation.ANIMATIONTYPE_VECTOR3,
+                    Animation.ANIMATIONLOOPMODE_CONSTANT
+                );
+                var cameraRotationKeyframes = [];
+                cameraRotationKeyframes.push({
+                    frame: 0,
+                    value: camera.rotation.clone() // Start with the current camera position
+                });
+                cameraRotationKeyframes.push({
+                    frame: 30, // Animation duration in frames
+                    value: new Vector3(0, Math.PI / 2, 0) // End with a new position
+                });
+                cameraPositionAnimation.setKeys(cameraPositionKeyframes);
+                cameraRotationAnimation.setKeys(cameraRotationKeyframes);
+                var cameraAnimationGroup = new AnimationGroup("cameraAnimationGroup");
+                cameraAnimationGroup.addTargetedAnimation(cameraPositionAnimation, camera);
+                cameraAnimationGroup.addTargetedAnimation(cameraRotationAnimation, camera);
+                cameraAnimationGroup.play(false);
+
+                var total = distances[activePlanet];
+
+                var torus = MeshBuilder.CreateTorus("torus", { diameter: sun_earth / total * 14, thickness: 0.05, tessellation: 100 }, scene);
+                var torusMaterial = new StandardMaterial("torusMaterial", scene);
+                torusMaterial.diffuseColor = new Color3(0.7, 0.7, 0.7); 
+                torus.material = torusMaterial;
+
+                
+                var torus = MeshBuilder.CreateTorus("torus", { diameter: 14, thickness: 0.05, tessellation: 100 }, scene);
+                var torusMaterial = new StandardMaterial("torusMaterial", scene);
+                torusMaterial.diffuseColor = new Color3(0.7, 0.7, 0.7); 
+                torus.material = torusMaterial;
+
+                for (const key in planets) {
+                    if (Object.prototype.hasOwnProperty.call(planets, key)) {
+                        const planet = planets[key];
+                        if (["mercury", "venus", "mars", "jupiter", "saturn", "uranus", "neptune"].filter((item) => {return true/*item != activePlanet*/}).includes(planet.name)) {
+                            planet.position.z += 60;
+                        }
+                    }
+                }
+
+                var animationFramesPos = [
+                    {
+                        frame: 0,
+                        value: planets['sun'].position.clone()
+                    },
+                    {
+                        frame: 30,
+                        value:  new Vector3(0, 0, 0)
+                    }
+                ];
+                var animationFramesScale = [
+                    {
+                        frame: 0,
+                        value: planets['sun'].scaling.clone()
+                    },
+                    {
+                        frame: 30,
+                        value: planets['sun'].scaling.clone().scale(0.3)
+                    }
+                ];
+            
+                var animationPos = new Animation(
+                    "openPlanet",
+                    "position",
+                    30,
+                    Animation.ANIMATIONTYPE_VECTOR3,
+                    Animation.ANIMATIONLOOPMODE_CONSTANT 
+                );
+                var animationScale = new Animation(
+                    "openPlanet",
+                    "scaling",
+                    30,
+                    Animation.ANIMATIONTYPE_VECTOR3,
+                    Animation.ANIMATIONLOOPMODE_CONSTANT 
+                );
+                animationPos.setKeys(animationFramesPos);
+                animationScale.setKeys(animationFramesScale);
+                planets['sun'].animations = [animationPos, animationScale];
+                scene.beginAnimation(planets['sun'], 0, 60, false);
+                animationFramesPos = [
+                    {
+                        frame: 0,
+                        value: planets['earth'].position.clone()
+                    },
+                    {
+                        frame: 30,
+                        value:  new Vector3(sun_earth / total * 7, 0, 0)
+                    }
+                ];
+            
+                var animationPos = new Animation(
+                    "openPlanet",
+                    "position",
+                    30,
+                    Animation.ANIMATIONTYPE_VECTOR3,
+                    Animation.ANIMATIONLOOPMODE_CONSTANT 
+                );
+                animationPos.setKeys(animationFramesPos);
+                planets['earth'].animations = [animationPos];
+                scene.beginAnimation(planets['earth'], 0, 60, false);
+
+                animationFramesPos = [
+                    {
+                        frame: 0,
+                        value: planets[activePlanet].position.clone()
+                    },
+                    {
+                        frame: 30,
+                        value:  new Vector3(7, 0, 0)
+                    }
+                ];
+                animationFramesScale = [
+                    {
+                        frame: 0,
+                        value: planets[activePlanet].scaling.clone()
+                    },
+                    {
+                        frame: 30,
+                        value:  activePlanetScale
+                    }
+                ];
+            
+                var animationPos = new Animation(
+                    "openPlanet",
+                    "position",
+                    30,
+                    Animation.ANIMATIONTYPE_VECTOR3,
+                    Animation.ANIMATIONLOOPMODE_CONSTANT 
+                );
+                var animationScale = new Animation(
+                    "openPlanet",
+                    "scaling",
+                    30,
+                    Animation.ANIMATIONTYPE_VECTOR3,
+                    Animation.ANIMATIONLOOPMODE_CONSTANT 
+                );
+                animationPos.setKeys(animationFramesPos);
+                animationScale.setKeys(animationFramesScale);
+                for (const key in planets) {
+                    if (Object.prototype.hasOwnProperty.call(planets, key)) {
+                        const planet = planets[key];
+                        if(planet.name == activePlanet) {
+                            planet.animations = [animationPos, animationScale];
+                            scene.beginAnimation(planet, 0, 60, false);
+                        }
+                    }
+                }
+                start_date = new Date("12/1/2050");
+                end_date = new Date();
+                now_date = new Date("12/1/2050");
+                end_date.setTime(start_date.getTime() + periods[activePlanet] * 86400000);
+                var inputContainer = document.querySelector(".slider-container") as HTMLInputElement;
+                if(inputContainer) {
+                    inputContainer.style.display = "flex";
+                }
+                var input = document.querySelector(".slider-container input") as HTMLInputElement;
+                if(input) {
+                    input.max = periods[activePlanet].toString();
+                }
+                var startDateE = document.querySelector(".slider-container .date.start") as HTMLInputElement;
+                var nowDateE = document.querySelector(".slider-container .date.now") as HTMLInputElement;
+                var endDateE = document.querySelector(".slider-container .date.end") as HTMLInputElement;
+                input.addEventListener("change", () => {
+                    now_date.setTime(start_date.getTime() + parseInt(input.value) * 86400000);
+                    if(nowDateE) {  
+                        nowDateE.innerText = formatDate(now_date);
+                    }
+                });
+                if(startDateE && nowDateE && endDateE) {
+                    startDateE.innerText = formatDate(start_date);
+                    endDateE.innerText = formatDate(end_date);
+                    nowDateE.innerText = formatDate(now_date);
+                }
+            }
+            });
+
         scene.onPointerDown = this.ClickEvent;
 
 
         scene.onPointerMove = function (evt, pickInfo) {
-            console.log(pickInfo.pickedMesh);
             points.forEach(point => {
                 if (pickInfo.hit && pickInfo.pickedMesh === point) {
                     scene.getEngine().getRenderingCanvas()?.classList.add('hover-pointer');
@@ -741,6 +1000,11 @@ class App {
             } else if (mode == MODE.MONUMENTS) {
                 if(pickResult.pickedMesh){
                     if(data[activePlanet]['monuments'].length >= parseInt(pickResult.pickedMesh.name) + 1) {
+                        if(clickedPoint) {
+                            var standardMaterial = clickedPoint.material as StandardMaterial;
+                            standardMaterial.diffuseColor = new Color3(1, 0, 0);
+                            clickedPoint = null;
+                        }
                         let site = data[activePlanet]['monuments'][pickResult.pickedMesh.name];
                         clickedPoint = pickResult.pickedMesh as Mesh;
                         if (pickResult.pickedMesh.material) {
