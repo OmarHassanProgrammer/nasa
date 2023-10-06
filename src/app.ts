@@ -841,13 +841,17 @@ class App {
                 var ppivot = new Mesh("ppivot", scene);
                 ppivot.position = new Vector3(0, 0, 0);
                 planets["earth"].parent = epivot;
-                for (const key in planets) {
-                    if (Object.prototype.hasOwnProperty.call(planets, key)) {
-                        const planet = planets[key];
-                        if(planet.name == "saturn") {
-                            planet.parent = ppivot;
+                if(activePlanet == "saturn") {
+                    for (const key in planets) {
+                        if (Object.prototype.hasOwnProperty.call(planets, key)) {
+                            const planet = planets[key];
+                            if(planet.name == "saturn") {
+                                planet.parent = ppivot;
+                            }
                         }
                     }
+                } else {
+                    planets[activePlanet].parent = ppivot;
                 }
                 let d : string = "";
                 if(activePlanet == "mars")
