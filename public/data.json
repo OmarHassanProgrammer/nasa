@@ -279,6 +279,14 @@
             {
                 "type": "text",
                 "value": "According to the harsh conditions on mars such as : the low atmospheric pressure , extremely cold temperatures and dust storms , it would need specialized space suits to be worn and providing life-support environments . these suits must have many requirements and aspects as :  1- pressure maintain system to regulate the pressure at 101.3KPa , 2- robust thermal control system which could involve many layers of isolation , heating elements, and a temperature-regulated liquid cooling garment to maintain a comfortable temperature inside the suit. 3- Radiation Protection: To shield astronauts from harmful radiation, the space suit materials should incorporate radiation-resistant layers. Some form of shielding, such as multiple layers of fabric. 4- Dust storms : Space suits designed for Mars would need to incorporate a sealed, airtight design with robust materials to prevent fine Martian dust from entering and damaging the suit's systems. The visor and helmet would also feature strong, dust-resistant materials to maintain visibility and protect the astronaut's face from abrasive dust particles during dust storms. Additionally, regular maintenance and cleaning procedures would be essential to ensure the suit's integrity and function in the dusty Martian environment."
+            },
+            {
+                "type": "title",
+                "value": "SCEDULE"
+            },
+            {
+                "type": "text",
+                "value": "DAY 1: North Pole  <br /> DAY 2: Mawrth Vallis  <br /> DAY 3: Becquerel Crater <br /> DAY 4: Iani Chaos <br /> DAY 5: Valles Marineris <br /> DAY 6: Hebes Chasma <br /> DAY 7: Olympus Mons <br /> DAY 8: Promethei Planum <br /> DAY 9: Rabe Crater <br /> DAY 10: Neukum Crater <br /> DAY 11: Galle Crater <br /> DAY 12: South Pole "
             }
         ],
         "monuments": [
@@ -377,14 +385,6 @@
                 "details": "Finally, we've reached our last stop, the South Pole. In 2018, scientists found evidence of a liquid lake beneath the ice, which could be filled with saltwater. But while that's a promising discovery, we still have much to learn about this fascinating world, like whether life once existed in those ancient lakes, or if it still exists today, possibly somewhere underground. But perhaps the biggest question of all, could human life survive here? Maybe in the future, you won't have to imagine your Martian vacation.",
                 "video": "",
                 "image": ""
-            },
-            {
-                "type": "title",
-                "value": "SCEDULE"
-            },
-            {
-                "type": "text",
-                "value": "DAY 1: North Pole  <br /> DAY 2: Mawrth Vallis  <br /> DAY 3: Becquerel Crater <br /> DAY 4: Iani Chaos <br /> DAY 5: Valles Marineris <br /> DAY 6: Hebes Chasma <br /> DAY 7: Olympus Mons <br /> DAY 8: Promethei Planum <br /> DAY 9: Rabe Crater <br /> DAY 10: Neukum Crater <br /> DAY 11: Galle Crater <br /> DAY 12: South Pole "
             }
 
         ]
