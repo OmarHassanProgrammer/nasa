@@ -39,6 +39,7 @@ body {
     color: #fff;
     margin: 0 auto 60px;
     font-size: 3rem;
+    padding: 0 7px;
 }
 .question .answers {
     display: flex;
@@ -88,7 +89,7 @@ body {
     font-size: 3rem;
 }
 .score input { 
-    width: 500px;
+    width: min(100%, 500px);
     margin: 0 auto 10px;
     background-color: #0006;
     padding: 10px;
@@ -98,7 +99,7 @@ body {
     color: #fff;
 }
 .score button {
-    width: 500px;
+    width: min(500px, 100%);
     padding: 10px;
     margin: 0 auto;
     border: none;
@@ -107,4 +108,20 @@ body {
     background-color: #3c40c6;
     color: #fff;
     cursor: pointer;
+}
+
+@media screen and (max-width: 730px) {
+    .question .answers {
+        flex-direction: column;
+        width: 90%;
+    }
+    .question .answers .answer {
+        font-size: 1rem;
+    }
+    .question .text {
+        font-size: 1.5rem;
+    }
+    .question {
+        background-size: auto 100%;
+    }
 }
