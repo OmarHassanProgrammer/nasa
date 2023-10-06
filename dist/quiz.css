@@ -1,0 +1,127 @@
+@font-face {
+    font-family: 'Mooli'; 
+    src: url('assets/Mooli/Mooli-Regular.ttf') format('woff2')
+}
+body {
+    margin: 0;
+}
+* {    
+    font-family: 'Mooli', sans-serif; 
+    box-sizing: border-box;
+}
+.question {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-image: url("assets/pxfuel.jpg");
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    
+    background-size: 100%;
+}
+.question:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #0005;
+    z-index: 1;
+}
+.question *{
+    z-index: 4;
+}
+.question .text {
+    color: #fff;
+    margin: 0 auto 60px;
+    font-size: 3rem;
+    padding: 0 7px;
+}
+.question .answers {
+    display: flex;
+    justify-content: center;
+    width: 30%;
+    gap: 50px;    
+    margin: 0 auto;
+}
+.question .answers .answer {
+    color: #fff;
+    font-size: 2.8rem;
+    text-align: center;
+    background-color: #3c40c6;
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 5px 10px;
+    transition: all 0.5s ease-in-out;
+}
+.question .answers .answer.right {
+    background-color: #05c46b;
+}
+.question .answers .answer.wrong {
+    background-color: #c0392b;
+}
+.question.done {
+    animation: fade 0.5s;
+    animation-fill-mode: forwards;
+}
+@keyframes fade {
+    0% {
+        opacity: 1;
+    }
+    99% {
+        opacity: 0;
+        display: flex;
+    }
+    100% {
+        opacity: 0;
+        display: none;
+    }
+}
+.score .text {
+    margin: 0 auto 30px;
+}
+.score .number {
+    text-align: center;
+    font-size: 3rem;
+}
+.score input { 
+    width: min(100%, 500px);
+    margin: 0 auto 10px;
+    background-color: #0006;
+    padding: 10px;
+    border: none;
+    outline: none;
+    font-size: 1.4rem;
+    color: #fff;
+}
+.score button {
+    width: min(500px, 100%);
+    padding: 10px;
+    margin: 0 auto;
+    border: none;
+    outline: none;
+    font-size: 1.4rem;
+    background-color: #3c40c6;
+    color: #fff;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 730px) {
+    .question .answers {
+        flex-direction: column;
+        width: 90%;
+    }
+    .question .answers .answer {
+        font-size: 1rem;
+    }
+    .question .text {
+        font-size: 1.5rem;
+    }
+    .question {
+        background-size: auto 100%;
+    }
+}

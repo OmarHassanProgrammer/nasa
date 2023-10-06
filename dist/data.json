@@ -1,0 +1,708 @@
+{
+    "mercury": {
+        "data": [
+            {
+                "type": "number",
+                "value": "EQUATORIAL DIAMETER: 4 879 KM"
+            },
+            {
+                "type": "number",
+                "value": "MASS: 3.3 X 1023 KG"
+            },
+            {
+                "type": "number",
+                "value": "MEAN DIST.FROM SUN: 58 M KM"
+            },
+            {
+                "type": "number",
+                "value": "ROTATION PERIOD: 59 DAYS"
+            },
+            {
+                "type": "number",
+                "value": "ROTATION PERIOD: 59 DAYS"
+            },
+            {
+                "type": "number",
+                "value": "SOLAR ORBIT PERIOD: 88 DAYS"
+            },
+            {
+                "type": "number",
+                "value": "SURFACE GRAVITY: 3.7 M/S2"
+            },
+            {
+                "type": "number",
+                "value": "SURFACE TEMPERATURE: 167°C"
+            },
+            {
+                "type": "number",
+                "value": "TEMPERATURE - DAY: 473°C"
+            },
+            {
+                "type": "number",
+                "value": "TEMPERATURE - NIGHT: -183°C"
+            },
+            {
+                "type": "text",
+                "value": "Mercury is the innermost and smallest planet of the Solar System. Because it has almost no atmosphere to retain heat, Mercury's surface experiences the greatest temperature variation of all the planets"
+            },
+            {
+                "type": "title",
+                "value": "OBSERVATION"
+            },
+            {
+                "type": "text",
+                "value": "Mercury appears as a morning or evening star from Earth, but due to it's proximity to Sun, it is very hard to see. Still, Mercury can be observed at least twice a year: in spring at dusk and in autumn before dawn."
+            }
+        ],
+        "monuments": [
+
+        ]
+    },
+    "venus": {
+        "data": [
+            {
+                "type": "number",
+                "value": "EQUATORIAL DIAMETER: 12 104 KM"
+            },
+            {
+                "type": "number",
+                "value": "MASS: 4.9 X 1024 KG"
+            },
+            {
+                "type": "number",
+                "value": "MEAN DIST.FROM SUN: 108 M KM"
+            },
+            {
+                "type": "number",
+                "value": "ROTATION PERIOD: 243 DAYS"
+            },
+            {
+                "type": "number",
+                "value": "SOLAR ORBIT PERIOD: 225 DAYS"
+            },
+            {
+                "type": "number",
+                "value": "SURFACE GRAVITY: 8.9 M/S2"
+            },
+            {
+                "type": "number",
+                "value": "SURFACE TEMPERATURE: 462°C"
+            },
+            {
+                "type": "text",
+                "value": "Although Venus has very similar size and interior structure as Earth, its vulcanic surface and extremely hot and dense atmosphere makes it one of the most inhospitable places in the Solar System."
+            },
+            {
+                "type": "title",
+                "value": "ATMOSPHERE"
+            },
+            {
+                "type": "text",
+                "value": "Thick clouds of sulfuric acid and dust reflect most of the Sun's light back to space, while carbon dioxide traps the Sun's heat inside the atmosphere, causing a runaway greenhouse effect. The atmospheric pressure on the surface of Venus is 92 times greater than on Earth."
+            },
+            {
+                "type": "title",
+                "value": "OBSERVATION"
+            },
+            {
+                "type": "text",
+                "value": "Venus is one of the brightest objects in our night sky -second only to the Moon. It appears as either an evening or a morning star."
+            }       
+        ],
+        "monuments": [
+
+        ]
+    },
+    "earth": {
+        "data": [
+            {
+                "type": "number", 
+                "value": "EQUATORIAL DIAMETER: 12 756 KM"
+            },
+            {
+                "type": "number",
+                "value": "MASS: 6 X 1024 KG"
+            },
+            {
+                "type": "number",
+                "value": "MEAN DIST.FROM SUN: 150 M KM"
+            },
+            {
+                "type": "number",
+                "value": "ROTATION PERIOD: 23H 56M"
+            },
+            {
+                "type": "number",
+                "value": "ROTATION PERIOD: 23H 56M"
+            },
+            {
+                "type": "number",
+                "value": "SOLAR ORBIT PERIOD: 1 YEAR"
+            },
+            {
+                "type": "number",
+                "value": "SOLAR ORBIT PERIOD: 1 YEAR"
+            },
+            {
+                "type": "number",
+                "value": "SURFACE GRAVITY: 9.8 M/S2"
+            },
+            {
+                "type": "number",
+                "value": "SURFACE TEMPERATURE: 15°C"
+            },
+            {
+                "type": "text",
+                "value": "Our homeworld is the densest of the eight planets in the Solar System. It is also the largest of the four terrestrial planets."
+            },
+            {
+                "type": "title",
+                "value": "SURFACE"
+            },
+            {
+                "type": "text",
+                "value": "About 71% of the Earth's surface is covered by salt water oceans, and the remaining 30% is taken up by the seven continental landmasses. Earth's outer surface is also divided into several rigid segments, or tectonic plates, that migrate across the surface over periods of millions of years"
+            },
+            {
+                "type": "title",
+                "value": "AXIAL TILT"
+            },
+            {
+                "type": "text",
+                "value": "Today, the Earth is tilted on its axis by 23.4°, producing seasonal variations in climate and weather across the surface of the planet during the course of a year."
+            },
+            {
+                "type": "title",
+                "value": "MAG.FIELD"
+            },
+            {
+                "type": "text",
+                "value": "The Earth's magnetic field is generated within the molten outer core region of the planet and extends outwards to form the magnetosphere: a barrier surrounding the Earth, deflecting particles of the solar wind and protecting the Earth from Sun's radiation."
+            }
+        ],
+        "monuments": []
+    },
+    "mars": {
+        "data": [
+            {
+                "type": "number",
+                "value": "EQUATORIAL DIAMETER: 6 792 KM"
+            },
+            {
+                "type": "number",
+                "value": "MASS: 6.4 X 1023 KG"
+            },
+            {
+                "type": "number",
+                "value": "MEAN DIST.FROM SUN: 229 M KM"
+            },
+            {
+                "type": "number",
+                "value": "ROTATION PERIOD: 1.03 DAY"
+            },
+            {
+                "type": "number",
+                "value": "SOLAR ORBIT PERIOD: 1.88 YEAR"
+            },
+            {
+                "type": "number",
+                "value": "SURFACE GRAVITY: 3.7 M/S2"
+            },
+            {
+                "type": "number",
+                "value": "SURFACE TEMPERATURE: -63°C"
+            },
+            {
+                "type": "number",
+                "value": "TEMPERATURE - SUMMER: 17°C"
+            },
+            {
+                "type": "number",
+                "value": "TEMPERATURE - WINTER: -140°C"
+            },
+            {
+                "type": "text",
+                "value": "Mars is the fourth planet from the Sun and the second smallest planet in the Solar System. The reddish appearance of Mars' surface is caused by iron oxide (rust)"
+            },
+            {
+                "type": "title",
+                "value": "EARTH-LIKE"
+            },
+            {
+                "type": "text",
+                "value": "While the Mars is about half as big as the Earth, there are still many similarities: Mars has a rocky surface and polar ice caps, the days on Mars are only 40 minutes longer, the axial tilt gives it similar seasons to ours (although each lasts about twice as long"
+            },
+            {
+                "type": "title",
+                "value": "SURFACE"
+            },
+            {
+                "type": "text",
+                "value": "Mars has a dramatic landscape, with towering volcanoes and a great canyon system. Of all the planets in the Solar System, it has the highest mountain, Olympus Mons, and the largest canyon, Valles Marineris"
+            },
+            {
+                "type": "title",
+                "value": "WATER"
+            },
+            {
+                "type": "text",
+                "value": "There is strong evidence that the Martian atmosphere was once far denser than it is now, and that water once ran freely on its surface. There is also mounting evidence that much of this water remains locked away underground."
+            },
+            {
+                "type": "title",
+                "value": "MOONS"
+            },
+            {
+                "type": "text",
+                "value": "Mars has two small natural satellites, Phobos and Deimos, that orbit very close to the planet. These moons may be captured asteroids. It has been predicted that in about 50 million years, Phobos will either crash into Mars' surface or break up into a ring structure around the planet."
+            },
+            {
+                "type": "title",
+                "value": "MISSIONS"
+            },
+            {
+                "type": "text",
+                "value": "Mars is the focus of intense study, with two rovers (exploration rover Opportunity and science laboratory Curiosity) operating on the surface, while three international missions orbit the planet: NASA's Mars Odyssey and Mars Reconnaissance Orbiter and ESA's Mars Express."
+            },
+            {
+                "type": "title",
+                "value": "OBSERVATION"
+            },
+            {
+                "type": "text",
+                "value": "Mars can easily be seen from Earth with the naked eye, as can its reddish coloring. Its apparent magnitude is surpassed by the Sun, the Moon, Venus and Jupiter but it can briefly match Jupiter's brightness at certain points in its orbit."
+            },
+            {
+                "type": "title",
+                "value": "TIPS WHEN VISITING"
+            },
+            {
+                "type": "text",
+                "value": "According to the harsh conditions on mars such as : the low atmospheric pressure , extremely cold temperatures and dust storms , it would need specialized space suits to be worn and providing life-support environments . these suits must have many requirements and aspects as :  1- pressure maintain system to regulate the pressure at 101.3KPa , 2- robust thermal control system which could involve many layers of isolation , heating elements, and a temperature-regulated liquid cooling garment to maintain a comfortable temperature inside the suit. 3- Radiation Protection: To shield astronauts from harmful radiation, the space suit materials should incorporate radiation-resistant layers. Some form of shielding, such as multiple layers of fabric. 4- Dust storms : Space suits designed for Mars would need to incorporate a sealed, airtight design with robust materials to prevent fine Martian dust from entering and damaging the suit's systems. The visor and helmet would also feature strong, dust-resistant materials to maintain visibility and protect the astronaut's face from abrasive dust particles during dust storms. Additionally, regular maintenance and cleaning procedures would be essential to ensure the suit's integrity and function in the dusty Martian environment."
+            },
+            {
+                "type": "title",
+                "value": "SCEDULE"
+            },
+            {
+                "type": "text",
+                "value": "DAY 1: North Pole  <br /> DAY 2: Mawrth Vallis  <br /> DAY 3: Becquerel Crater <br /> DAY 4: Iani Chaos <br /> DAY 5: Valles Marineris <br /> DAY 6: Hebes Chasma <br /> DAY 7: Olympus Mons <br /> DAY 8: Promethei Planum <br /> DAY 9: Rabe Crater <br /> DAY 10: Neukum Crater <br /> DAY 11: Galle Crater <br /> DAY 12: South Pole "
+            }
+        ],
+        "monuments": [
+            {
+                "latitude": 23,
+                "longitude": 305,
+                "name": "North Pole",
+                "details": "Our first stop, the North Pole. This ice cap is bigger than Texas, and is mostly covered in water ice and solid carbon dioxide, aka dry ice. Heading south, we'll visit Kasei Valles. It's a vast system of chasms five times longer and 10 times wider than the Grand Canyon, and scientists think it formed in a similar way. Billions of years ago, Mars was warmer, and covered with liquid water, which likely carved out valleys like this one.",
+                "video": "",
+                "image": ""
+            },
+            {
+                "latitude": 22.3,
+                "longitude": 343.5,
+                "name": "Mawrth Vallis",
+                "details": "Mawrth Vallis is another valley close by, but it looks very different from our previous spot, thanks to its multicolored layers of clay. These deposits probably formed over millennia as Mars shifted towards a colder, drier climate, and they could provide clues to the history of liquid water and possible ancient life on Mars.",
+                "video": "",
+                "image": ""
+            },
+            {
+                "latitude": 21.3,
+                "longitude": 352.2,
+                "name": "Becquerel Crater",
+                "details": "The next stop is another place that may have been teeming with life long ago, Bacquerel Crater. It's filled with rocks made of sulfate similar to ones on Earth that form after water evaporates, which has led scientists to suspect that this crater may once have been a massive lake over 160 kilometers wide.",
+                "video": "",
+                "image": ""
+            },
+            {
+                "latitude": -2.19,
+                "longitude": 342.96,
+                "name": "Iani Chaos",
+                "details": "Next stop, Iani Chaos. Now, this is one type of terrain you won't find anywhere on Earth. It's a maze of rugged cliffs and pillar-like hills called mesas that extend for 200 kilometers, and since there is nothing like it on Earth, scientists aren't exactly sure how these unique features formed. Its larger neighbor, Hydraotes Chaos, probably formed in a similar mysterious way. It stretches 350 kilometers, the same distance as New York City to Boston.",
+                "video": "",
+                "image": ""
+            },
+            {
+                "latitude": -2,
+                "longitude": 80,
+                "name": "Valles Marineris",
+                "details": "West of Hydraotes, we find one Mars's greatest attractions, Valles Marineris. It's the largest canyon in the solar system, running the length of New York to Los Angeles, and plunging four times as deep as the Grand Canyon.",
+                "video": "",
+                "image": ""
+            },
+            {
+                "latitude": -1,
+                "longitude": -76,
+                "name": "Hebes Chasma",
+                "details": "Following the canyon's main channel north, we reach Hebes Chasma. It's tiny compared to Valles Marineris, but it's worth the trek for a glimpse of the chasma's prominent mesa.",
+                "video": "",
+                "image": ""
+            },
+            {
+                "latitude": 19,
+                "longitude": -133,
+                "name": "Olympus Mons",
+                "details": "And no trip to Mars would be complete without a visit to Olympus Mons, the tallest volcano in the solar system. It covers a region the size of Arizona. It's three times as tall as Mount Everest, and can comfortably fit all the volcanoes in Hawaii.",
+                "video": "",
+                "image": ""
+            },
+            {
+                "latitude": -76,
+                "longitude": 105,
+                "name": "Promethei Planum",
+                "details": "Moving south, we'll see Promethei Planum. It's a plane near the South Pole, covered in a sheet of ice nearly one and a half times as thick as the East Antarctic Ice Sheet.",
+                "video": "",
+                "image": ""
+            },
+            {
+                "latitude": 82.619,
+                "longitude": -43.7003,
+                "name": "Rabe Crater",
+                "details": "Next, we'll swing around to Rabe Crater. It's covered in giant sand dunes 150 to 200 meters high, almost as tall as the Golden Gate Bridge",
+                "video": "",
+                "image": ""
+            },
+            {
+                "latitude": -44.1,
+                "longitude": 26.7,
+                "name": "Neukum Crater",
+                "details": "Nearing the end of our tour is one of the oldest regions of Mars that dates back to at least 3.9 billion years ago, Neukum Crater. Scientists think this crater formed from a powerful impact early in Mars's history. In fact, you can still see pockmarks left by the crash.",
+                "video": "",
+                "image": ""
+            },
+            {
+                "latitude": -5.4,
+                "longitude": 137.9,
+                "name": "Galle Crater",
+                "details": "The last crater on our tour is formally named Galle Crater, but many call it Happy Face Crater for obvious reasons.",
+                "video": "",
+                "image": ""
+            },
+            {
+                "latitude": 30,
+                "longitude": 315,
+                "name": "South Pole",
+                "details": "Finally, we've reached our last stop, the South Pole. In 2018, scientists found evidence of a liquid lake beneath the ice, which could be filled with saltwater. But while that's a promising discovery, we still have much to learn about this fascinating world, like whether life once existed in those ancient lakes, or if it still exists today, possibly somewhere underground. But perhaps the biggest question of all, could human life survive here? Maybe in the future, you won't have to imagine your Martian vacation.",
+                "video": "",
+                "image": ""
+            }
+
+        ]
+    },
+    "jupiter": {
+        "data": [
+            {
+                "type": "number",
+                "value": "EQUATORIAL DIAMETER: 142 984 KM"
+            },
+            {
+                "type": "number",
+                "value": "MASS: 1.9 X 1027 KG"
+            },
+            {
+                "type": "number",
+                "value": "MEAN DIST.FROM SUN: 779 M KM"
+            },
+            {
+                "type": "number",
+                "value": "ROTATION PERIOD: 9H 55M"
+            },
+            {
+                "type": "number",
+                "value": "SOLAR ORBIT PERIOD: 11.9 YEARS"
+            },
+            {
+                "type": "number",
+                "value": "SURFACE GRAVITY: 25 M/S2"
+            },
+            {
+                "type": "number",
+                "value": "SURFACE TEMPERATURE: -120°C"
+            },
+            {
+                "type": "text",
+                "value": "Jupiter is the largest planet of the Solar System, with a mass 2.5 greater than all of the rest of the planets combined - but still only one-thousandth that of the Sun."
+            },
+            {
+                "type": "title",
+                "value": "STAR-LIKE"
+            },
+            {
+                "type": "text",
+                "value": "Jupiter is the planet most like the Sun in terms of its composition. Although Jupiter would still need to be about 75 times as massive to fuse hydrogen and become a star, it would only need to be 13 times as massive to burn deuterium and become a brown dwarf."
+            },
+            {
+                "type": "title",
+                "value": "ATMOSPHERE"
+            },
+            {
+                "type": "text",
+                "value": "Jupiter spins on its axis faster than any other planet. Because of this rotation, Jupiter's atmosphere is subject to high winds, which cause the atmosphere to form distinct bands of colour, like swirling vortices and gigantic anticyclonic storms."
+            },
+            {
+                "type": "title",
+                "value": "MOONS"
+            },
+            {
+                "type": "text",
+                "value": "Jupiter governs the largest number of moons of any planet, with the current official total being 79. The four largest are the Galilean moons: lo, Europa, Ganymede, and Callisto. Ganymede, the largest moon in the Solar System, has a diameter greater than that of the planet Mercury."
+            },
+            {
+                "type": "title",
+                "value": "OBSERVATION"
+            },
+            {
+                "type": "text",
+                "value": "Jupiter is the fourth brightest object in our skies after the Sun, Moon and Venus. Because the orbit of Jupiter is outside the Earth's, the planet always appears nearly fully illuminated when viewed through Earth-based telescopes."
+            }
+        ],
+        "monuments": [
+            
+        ]
+    },
+    "saturn": {
+        "data": [
+            {
+                "type": "number",
+                "value": "EQUATORIAL DIAMETER: 120 536 KM"
+            },
+            {
+                "type": "number",
+                "value": "MASS: 5.7 X 1026 KG"
+            },
+            {
+                "type": "number",
+                "value": "MEAN DIST.FROM SUN: 9.58 AU"
+            },
+            {
+                "type": "number",
+                "value": "ROTATION PERIOD: 10H 39M"
+            },
+            {
+                "type": "number",
+                "value": "SOLAR ORBIT PERIOD: 29 YEARS"
+            },
+            {
+                "type": "number",
+                "value": "SURFACE GRAVITY: 10.4 M/S2"
+            },
+            {
+                "type": "number",
+                "value": "SURFACE TEMPERATURE: -139°C"
+            },
+            {
+                "type": "text",
+                "value": "Saturn is the sixth planet from the Sun and the second largest planet in the Solar System. Until the invention of modern telescope, Saturn was regarded as the outermost of the known planets."
+            },
+            {
+                "type": "title",
+                "value": "MASS"
+            },
+            {
+                "type": "text",
+                "value": "Although the second largest, Saturn is the least dense of all the planets in the Solar System, with only one-eighth the density of Earth (but nine times. its diameter). It is also the only planet that is less dense than water."
+            },
+            {
+                "type": "title",
+                "value": "RING"
+            },
+            {
+                "type": "text",
+                "value": "While the other gas giants also have ring systems, Saturn's is larger and more visible than any other in the Solar System. The rings are composed of water ice crystals and a smaller amount of rock, ranging in size from specks of dust to a few particles as large as mountains."
+            },
+            {
+                "type": "title",
+                "value": "MOONS"
+            },
+            {
+                "type": "text",
+                "value": "Saturn has at least 150 moons and moonlets. The precise figure is uncertain as it is difficult to draw a distinction between a large ring particle and a tiny moon. Some of Saturn's moons act as shepherd moons to confine rings and prevent them from spreading out."
+            },
+            {
+                "type": "title",
+                "value": "OBSERVATION"
+            },
+            {
+                "type": "text",
+                "value": "Saturn appears to the naked eye in the night sky as a bright, yellowish point of light. Magnifying at least 30x resolves Saturn's rings"
+            },
+            {
+                "type": "title",
+                "value": "TIPS WHEN VISITING TITAN"
+            },
+            {
+                "type": "text",
+                "value": "A space suit designed for landing and walking on Titan, Saturn's largest moon, would need to address a unique set of challenges and requirements due to Titan's extreme cold, thick atmosphere, and surface conditions. Here are some key requirements for a space suit designed for Titan and can be worn to provide suitable life conditions for humans : 1- Temperature Control:  Advanced insulation: The space suit must provide excellent thermal insulation to protect astronauts from Titan's frigid surface temperatures, which average around -290 degrees Fahrenheit (-179 degrees Celsius). Internal heating: A heating system within the suit would be essential to maintain a comfortable and survivable temperature for astronauts . 2- Gas Composition:  Oxygen supply: The space suit should have a system to provide a breathable oxygen supply, as Titan's atmosphere contains very little oxygen. Methane and ethane removal: Titan's atmosphere contains methane and ethane, which are toxic to humans. The suit should include efficient air filtration and scrubbing systems to remove these gases. 3- Visibility: Clear visor: The helmet visor should provide clear visibility while protecting against dust and radiation. It may include built-in lighting for visibility in Titan's dim sunlight. 4- Pressure Control: Maintaining atmospheric pressure: The space suit must maintain a safe atmospheric pressure to prevent decompression sickness (the 'bends'). The high atmospheric pressure on Titan, about 1.5 bars, would require the suit to provide an appropriate counter-pressure"
+            },
+            {
+                "type": "title",
+                "value": "SCEDULE"
+            },
+            {
+                "type": "text",
+                "value": "DAY 1: Titan's dry sea beds <br /> DAY 2: Great Dunes <br /> DAY 3: Sotra Patera <br /> DAY 4: Menrva Carter <br /> DAY 5: karken Mare Lake <br /> DAY 6: STRANGE RAIN"
+            }
+        ],
+        "monuments": [
+            {
+                "latitude": 68,
+                "longitude": 110,
+                "name": "Titan's dry sea beds",
+                "details": "Temperature: -180 C/ -292 F <br/> Surface covering: Ice pebbles <br/>",
+                "video": "",
+                "image": ""
+            },
+            {
+                "latitude": 0,
+                "longitude": 0,
+                "name": "Great dunes",
+                "details": "Area: 4 million square miles <br/> Size: 1 mile wide, 100 miles long, 300 FT height. <br /> Titan surface gravity: 1/7 Earth's <br/>Grains of dunes: hydrocarbon polymers like tiny chips of plastic",
+                "video": "",
+                "image": ""
+            },
+            {
+                "latitude": -14,
+                "longitude": 40,
+                "name": "Sotra Patera",
+                "details": "titan's most famous mountain or it's an ice volcano <br/> Importance: sotra is the source of methane which keeps Titan warmer than cold space.<br/>Height: 5000 FT<br/>Diameter: 40 miles.<br/>Depth: 5000 FT<br/>Surface: Icy (You can skate on it using sleds).",
+                "video": "",
+                "image": ""
+            },
+            {
+                "latitude": 19,
+                "longitude": 87,
+                "name": "Menrva Carter",
+                "details": "Diameter: 273 miles<br/>Depth: 2.8 km<br/>Area: 58,000 miles^2",
+                "video": "",
+                "image": ""
+            },
+            {
+                "latitude": 68,
+                "longitude": 310,
+                "name": "Kraken Mare Lake",
+                "details": "larger than the Lake Superior, the largest lake on Earth<br/>Area: 156,000 mile square <br/>Depth: 170 meters <br/>Liquid: not water, instead liquid hydrocarbons like methane, ethane, and propane.",
+                "video": "",
+                "image": ""
+            },
+            {
+                "latitude": 49,
+                "longitude": 243,
+                "name": "Strange rain",
+                "details": "Liquid: methane and ethane<br/>Rain speed: 1.6 m/s (due to low gravity)",
+                "video": "",
+                "image": ""
+            }
+
+        ]
+    },
+    "uranus": {
+        "data": [
+            {
+                "type": "number",
+                "value": "EQUATORIAL DIAMETER: 51 118 KM"
+            },
+            {
+                "type": "number",
+                "value": "MASS: 8.7 X 1025 KG"
+            },
+            {
+                "type": "number",
+                "value": "MEAN DIST.FROM SUN: 19.2 AU"
+            },
+            {
+                "type": "number",
+                "value": "ROTATION PERIOD: 17H 14M"
+            },
+            {
+                "type": "number",
+                "value": "SOLAR ORBIT PERIOD: 84 YEARS"
+            },
+            {
+                "type": "number",
+                "value": "SURFACE GRAVITY: 8.7 M/S2"
+            },
+            {
+                "type": "number",
+                "value": "SURFACE TEMPERATURE: -210°C"
+            },
+            {
+                "type": "text",
+                "value": "Uranus is the third largest of the Solar System's gas giants. It is the coldest planet in the Solar System"
+            },
+            {
+                "type": "title",
+                "value": "DISCOVERY"
+            },
+            {
+                "type": "text",
+                "value": "Uranus was the first to be discovered by the use of the modern telescope, with its discovery credited to the English astronomer William Herschel in 1781."
+            },
+            {
+                "type": "title",
+                "value": "AXIAL TILT"
+            },
+            {
+                "type": "text",
+                "value": "Uranus has an axial tilt of 97.77°, meaning it effectively rolls around the Sun 'on its side' compared to the other planets in the Solar System."
+            },
+            {
+                "type": "title",
+                "value": "OBSERVATION"
+            },
+            {
+                "type": "text",
+                "value": "While in Opposition (from the Sun, relative to the Earth), Uranus becomes visible to the naked-eye. It would appear as a faint star under dark sky conditions."
+            }
+        ],
+        "monuments": [
+
+        ]
+    },
+    "neptune": {
+        "data": [
+            {
+                "type": "number",
+                "value": "EQUATORIAL DIAMETER: 49 528 KM"
+            },
+            {
+                "type": "number",
+                "value": "MASS: 1.02 X 1026 KG"
+            },
+            {
+                "type": "number",
+                "value": "MEAN DIST.FROM SUN: 30.1 AU"
+            },
+            {
+                "type": "number",
+                "value": "ROTATION PERIOD: 16H 06M"
+            },
+            {
+                "type": "number",
+                "value": "SOLAR ORBIT PERIOD: 165 YEARS"
+            },
+            {
+                "type": "number",
+                "value": "SURFACE GRAVITY: 11.2 M/S2"
+            },
+            {
+                "type": "number",
+                "value": "SURFACE TEMPERATURE: -200°C"
+            },
+            {
+                "type": "text",
+                "value": "Neptune, is the eight and officially farthest planet from the Sun. It is the smallest but also the most dense of gas giants. Neptune has a surface gravity that is only surpassed by Jupiter."
+            },
+            {
+                "type": "title",
+                "value": "DISCOVERY"
+            },
+            {
+                "type": "text",
+                "value": "Neptune was the first planet to be discovered purely on the basis of mathematical prediction rather than by direct observation. Since it's discovery in 1846, Neptune has completed only one orbit of the Sun"
+            }
+        ],
+        "monuments": [
+
+        ]
+    }
+}
