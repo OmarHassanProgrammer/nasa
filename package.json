@@ -17,9 +17,13 @@
     "@babylonjs/loaders": "^6.0.0",
     "@babylonjs/materials": "^6.0.0",
     "@babylonjs/serializers": "^6.21.1",
+    "@types/xlsx": "^0.0.36",
     "ammo.js": "github:kripken/ammo.js",
+    "fs": "^0.0.1-security",
     "gui": "^0.14.0",
-    "recast-detour": "^1.6.1"
+    "numpy": "^0.0.1",
+    "recast-detour": "^1.6.1",
+    "xlsx": "^0.18.5"
   },
   "devDependencies": {
     "@babylonjs/core": "^6.21.1",

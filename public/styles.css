@@ -238,9 +238,8 @@ clip-path: polygon(10px 0%, 145px 0%, 100% 10px, 100% 35px, 145px 100%, 10px 100
     display: inline-block;
     min-width: 200px;
 }
-.closeContainer {
+.closeContainer, .quizContainer {
     position: fixed;
-    opacity: 0;
     height: 40px;
     width: 40px;
     top: 100px;
@@ -254,11 +253,18 @@ clip-path: polygon(10px 0%, 35px 0%, 100% 10px, 100% 35px, 35px 100%, 10px 100%,
     transition: opacity 0.5s ease-in-out,
                 background-color 0.5s ease-in-out;
 }
-.closeContainer:hover {
+.quizContainer {
+    bottom: 100px;
+    left: 300px;
+    right:auto;
+    top: auto;
+}
+.closeContainer:hover, .quizContainer:hover {
     background-color: #2995b977;
 }
 
-.closeContainer:after {
+.closeContainer:after,
+    .quizContainer:after {
     content: "";
     position: absolute;
     width: 12px;
@@ -268,7 +274,8 @@ clip-path: polygon(10px 0%, 35px 0%, 100% 10px, 100% 35px, 35px 100%, 10px 100%,
     bottom: calc(-5px);
     left: calc(-4px);
 }
-.closeContainer:before {
+.closeContainer:before,
+    .quizContainer:before {
     content: "";
     position: absolute;
     width: 9px;
@@ -278,14 +285,16 @@ clip-path: polygon(10px 0%, 35px 0%, 100% 10px, 100% 35px, 35px 100%, 10px 100%,
     bottom: calc(-5px);
     right: calc(-5px);
 }
-.close {
+.close,
+    .quiz {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100%;
     width: 100%;
 }
-.close:before {
+.close:before,
+    .quiz:before {
     content: "";
     position: absolute;
     width: 13px;
@@ -295,7 +304,8 @@ clip-path: polygon(10px 0%, 35px 0%, 100% 10px, 100% 35px, 35px 100%, 10px 100%,
     top: calc(-4px);
     right: calc(-6px);
 }
-.close:after {
+.close:after,
+    .quiz:after {
     content: "";
     position: absolute;
     width: 13px;
@@ -305,7 +315,8 @@ clip-path: polygon(10px 0%, 35px 0%, 100% 10px, 100% 35px, 35px 100%, 10px 100%,
     top: calc(-4px);
     left: calc(-4px);
 }
-.closeContainer svg {
+.closeContainer svg,
+    .quizContainer svg {
     width: 30px;
     height: 30px;
     fill: #fff;

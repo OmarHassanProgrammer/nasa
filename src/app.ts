@@ -23,6 +23,7 @@ import { Engine,
     Space,
     Tools,
     Axis,
+    Matrix,
     Quaternion,
     DynamicTexture,
     ShaderMaterial} from "@babylonjs/core";
@@ -46,17 +47,20 @@ var light1: HemisphericLight;
 var light2: HemisphericLight | null;
 var points : Mesh[] = [];
 var clickedPoint : Mesh | null;
+var spacecraft : Mesh | null;
 
 var sun_earth = 93;
 var distances : { [key: string]: number } = {};
 var periods : { [key: string]: number } = {};
+var speeds : { [key: string]: number } = {};
+var pData : { [key: string]: any } = {};
 var start_date : Date;
 var now_date : Date;
 var end_date : Date;
 
 function formatDate(date : Date) {
     const year = date.getFullYear();
-    const month = String(date.getMonth() + 1).padStart(2, '0'); // Months are zero-indexed, so add 1
+    const month = String(date.getMonth() + 1).padStart(2, '0');
     const day = String(date.getDate()).padStart(2, '0');
     const hours = String(date.getHours()).padStart(2, '0');
     const minutes = String(date.getMinutes()).padStart(2, '0');
@@ -86,10 +90,10 @@ class App {
         camera.upperRadiusLimit = 9;
         light1 = new HemisphericLight("light1", new Vector3(2, 0, 0), scene);
         
-        /*var backgroundMusic = new Sound("backgroundMusic", "assets/bgMusic.mp3", scene, null, {
+        var backgroundMusic = new Sound("backgroundMusic", "assets/bgMusic.mp3", scene, null, {
             loop: true,
             autoplay: true
-        });*/
+        });
 
         const angularVelocity = Math.PI / 5;
         const relativeRotationalSpeeds = {
@@ -111,10 +115,18 @@ class App {
         };
         periods = {
             'mars': 259,
-            'jupiter': 2000,
-            'saturn': 1156,
-            'uranus': 1600,
-            'neptune': 2703
+            'jupiter': 800,
+            'saturn': 950,
+            'uranus': 1900,
+            'neptune': 2875
+        };
+        speeds = {
+            'earth': 0.01721,
+            'mars': 0.00916,
+            'jupiter': 0.00145,
+            'saturn': 0.00058,
+            'uranus': 0.00020,
+            'neptune': 0.00010
         };
 
         var url = "data.json?v=2";
@@ -228,6 +240,16 @@ class App {
             if(result.meshes[1] instanceof Mesh)   
                 planets['neptune'] = result.meshes[1];
         });
+        SceneLoader.ImportMeshAsync("", "assets/", "titan.glb", scene).then((result) => {
+            result.meshes[1].position.x = 1.5;
+            result.meshes[1].position.z = 60;
+            result.meshes[1].scaling.x = 0.001;
+            result.meshes[1].scaling.y = 0.001;
+            result.meshes[1].scaling.z = 0.001;
+            result.meshes[1].name = "titan";
+            if(result.meshes[1] instanceof Mesh)   
+                planets['titan'] = result.meshes[1];
+        });
         
         var skybox = Mesh.CreateBox("skyBox", 50.0, scene);
         var skyboxMaterial = new StandardMaterial("skyBox", scene);
@@ -237,7 +259,108 @@ class App {
         skyboxMaterial.disableLighting = true;
         skybox.material = skyboxMaterial;
 
-        // hide/show the Inspector
+        var url = "assets/pLocs/earth.json";
+        fetch(url)
+            .then(function(response) {
+                if (!response.ok) {
+                    throw new Error("Network response was not ok");
+                }
+                return response.json();
+            })
+            .then(function(jsonData) {
+                pData["earth"] = jsonData;
+            })
+            .catch(function(error) {
+                console.error("Fetch error:", error);
+            });
+            
+        var url = "assets/pLocs/mars.json";
+        fetch(url)
+            .then(function(response) {
+                if (!response.ok) {
+                    throw new Error("Network response was not ok");
+                }
+                return response.json();
+            })
+            .then(function(jsonData) {
+                pData["mars"] = jsonData;
+            })
+            .catch(function(error) {
+                console.error("Fetch error:", error);
+            });
+
+            var url = "assets/pLocs/jupiter.json";
+        fetch(url)
+            .then(function(response) {
+                if (!response.ok) {
+                    throw new Error("Network response was not ok");
+                }
+                return response.json();
+            })
+            .then(function(jsonData) {
+                pData["jupiter"] = jsonData;
+            })
+            .catch(function(error) {
+                console.error("Fetch error:", error);
+            });
+
+            var url = "assets/pLocs/saturn.json";
+        fetch(url)
+            .then(function(response) {
+                if (!response.ok) {
+                    throw new Error("Network response was not ok");
+                }
+                return response.json();
+            })
+            .then(function(jsonData) {
+                pData["saturn"] = jsonData;
+            })
+            .catch(function(error) {
+                console.error("Fetch error:", error);
+            });
+
+            var url = "assets/pLocs/uranus.json";
+        fetch(url)
+            .then(function(response) {
+                if (!response.ok) {
+                    throw new Error("Network response was not ok");
+                }
+                return response.json();
+            })
+            .then(function(jsonData) {
+                pData["uranus"] = jsonData;
+            })
+            .catch(function(error) {
+                console.error("Fetch error:", error);
+            });
+
+            var url = "assets/pLocs/neptune.json";
+        fetch(url)
+            .then(function(response) {
+                if (!response.ok) {
+                    throw new Error("Network response was not ok");
+                }
+                return response.json();
+            })
+            .then(function(jsonData) {
+                pData["neptune"] = jsonData;
+            })
+            .catch(function(error) {
+                console.error("Fetch error:", error);
+            });
+
+        window.addEventListener("keydown", (ev) => {
+            // Shift+Ctrl+Alt+I
+            if (ev.shiftKey && ev.ctrlKey && ev.altKey && ev.key === 'i') {
+                if (scene.debugLayer.isVisible()) {
+                    scene.debugLayer.hide();
+                } else {
+                    scene.debugLayer.show();
+                }
+            }
+        });
+
+        
         window.addEventListener("keydown", (ev) => {
             // Shift+Ctrl+Alt+I
             if (ev.shiftKey && ev.ctrlKey && ev.altKey && ev.key === 'i') {
@@ -256,7 +379,9 @@ class App {
                 points.forEach(point => {
                     point.dispose();
                 });
-                
+                if(planets["titan"].position.z != 60) {
+                    planets["titan"].position.z = 60;
+                }
                 var input = document.querySelector(".slider-container") as HTMLInputElement;
                 if(input) {
                     input.style.display = "none";
@@ -265,6 +390,7 @@ class App {
                 for (const key in planets) {
                     if (Object.prototype.hasOwnProperty.call(planets, key)) {
                         const mesh = planets[key];
+                        if(mesh.name != "titan")
                         mesh.position.z -= 60;
                     }
                 }
@@ -472,15 +598,21 @@ class App {
                     planets['saturn'].rotationQuaternion = null;
                     planets['saturnRings'].rotationQuaternion = null;
                     planets['saturnRingsDown'].rotationQuaternion = null;
+                    planets['titan'].position.z -= 60;
+                    
                 } else {
                     clickedMesh.rotationQuaternion = null;
                     clickedMesh.animations = [animationPos, animationScale, animationRotation];
                     scene.beginAnimation(clickedMesh, 0, 60, false);
                 }
+                if(activePlanet == "saturn") {
+                    camera.target = new Vector3(-planets['titan'].position.x, planets['titan'].position.y, planets['titan'].position.z);
+                }
 
                 for (const key in planets) {
                     if (Object.prototype.hasOwnProperty.call(planets, key)) {
                         const mesh = planets[key];
+                        if(mesh.name != "titan")
                         mesh.position.z += 60;
                     }
                 }
@@ -489,9 +621,20 @@ class App {
                 light2 = new HemisphericLight("light2", new Vector3(0, -1, 0), scene);
                 data[activePlanet]['monuments'].forEach((monument : any, key : number ) => {
                     var sphere = MeshBuilder.CreateSphere("sphere", { diameter: 0.05 }, scene);
-                    sphere.position.z = -0.75;
-                    sphere.rotateAround(new Vector3(0, 0, -2), new Vector3(1, 0, 0), monument.latitude);
-                    sphere.rotateAround(new Vector3(0, 0, -2), new Vector3(0, 1, 0), monument.longitude);
+                    if(activePlanet == "saturn") {
+                        let loc = planets['titan'].position.clone();
+                        loc.x -= 3;
+                        loc.z -= 0.5;
+                        sphere.position = loc;
+                        let ra = loc.clone();
+                        ra.z += 0.5;
+                        sphere.rotateAround(ra, new Vector3(1, 0, 0), monument.latitude);
+                        sphere.rotateAround(ra, new Vector3(0, 1, 0), monument.longitude);
+                    } else {
+                        sphere.position.z = -0.75;
+                        sphere.rotateAround(new Vector3(0, 0, -2), new Vector3(1, 0, 0), monument.latitude);
+                        sphere.rotateAround(new Vector3(0, 0, -2), new Vector3(0, 1, 0), monument.longitude);
+                    }
                     /*setInterval(() => {
                         //sphere.rotateAround(new Vector3(0, 0, -2), new Vector3(1, 0, 0), Math.PI / 50);
                     }, 100);*/
@@ -507,9 +650,6 @@ class App {
         document.querySelector('.data .itinerary')?.addEventListener('click', () => {
             if(mode == MODE.Planet) {
                 mode = MODE.ITINERARY;
-                if(closeBtn) {
-                    closeBtn.style.opacity = "1";
-                }
                 var title = document.querySelector(".title .text") as HTMLElement;
                 var div = document.querySelector(".data") as HTMLElement;
                 if(div) {
@@ -564,7 +704,6 @@ class App {
                 torusMaterial.diffuseColor = new Color3(0.7, 0.7, 0.7); 
                 torus.material = torusMaterial;
 
-                
                 var torus = MeshBuilder.CreateTorus("torus", { diameter: 14, thickness: 0.05, tessellation: 100 }, scene);
                 var torusMaterial = new StandardMaterial("torusMaterial", scene);
                 torusMaterial.diffuseColor = new Color3(0.7, 0.7, 0.7); 
@@ -686,25 +825,91 @@ class App {
                         }
                     }
                 }
-                start_date = new Date("12/1/2050");
+                let begDate = new Date("2051-8-22");
+                
+                spacecraft = MeshBuilder.CreatePlane('plane', { size: 2 }, scene);
+                var texture = new Texture('assets/spacecraft.png', scene);
+                var material = new StandardMaterial('material', scene);
+                texture.hasAlpha = true;
+                material.diffuseTexture = texture;
+                spacecraft.material = material;
+                spacecraft.rotation.x = Math.PI / 2;
+                spacecraft.rotation.y = Math.PI;
+                spacecraft.scaling = new Vector3(0.5, 0.5, 0.5);
+                var epivot = new Mesh("epivot", scene);
+                epivot.position = new Vector3(0, 0, 0);
+                var ppivot = new Mesh("ppivot", scene);
+                ppivot.position = new Vector3(0, 0, 0);
+                planets["earth"].parent = epivot;
+                for (const key in planets) {
+                    if (Object.prototype.hasOwnProperty.call(planets, key)) {
+                        const planet = planets[key];
+                        if(planet.name == "saturn") {
+                            planet.parent = ppivot;
+                        }
+                    }
+                }
+                let d : string = "";
+                if(activePlanet == "mars")
+                    d = "2051-8-22";
+                else if(activePlanet == "saturn") 
+                    d = "2050-01-01";
+                start_date = new Date(d);
                 end_date = new Date();
-                now_date = new Date("12/1/2050");
+                now_date = new Date(d);
                 end_date.setTime(start_date.getTime() + periods[activePlanet] * 86400000);
+                let a = -Math.floor((start_date.getTime() - begDate.getTime()) / 86400000)  * speeds["earth"];
+                let pa = -Math.floor((end_date.getTime() - begDate.getTime()) / 86400000)  * speeds[activePlanet];
+                let ex = Math.cos(a) * sun_earth / total * 7;
+                let ey = Math.sin(a) * sun_earth / total * 7;
+                let px = Math.cos(pa) * 7;
+                let py = Math.sin(pa) * 7;
+                var points : Vector3[] = [];
+                var input = document.querySelector(".slider-container input") as HTMLInputElement;
+                for(let i = 0; i < 360; i++) {
+                    let ele;
+                    ele = i / 180;
+                    ele = 1 - (ele - 1) * (ele - 1);
+                    ele *= 4;
+                    let percent;
+                    if(input)
+                        percent = parseInt(input.value) / periods[activePlanet];
+                    points.push(new Vector3(i / 360 * (px - ex) + ex + ele * Math.sin(a - pa), 0, i / 360 * (py - ey) + ey + ele * Math.cos(pa - a)));
+                }
+                console.log(ex, ey);
+                spacecraft.position = new Vector3(ex, 0, ey);
+                
+                var line = MeshBuilder.CreateLines("line", { points: points }, scene);
                 var inputContainer = document.querySelector(".slider-container") as HTMLInputElement;
                 if(inputContainer) {
                     inputContainer.style.display = "flex";
                 }
-                var input = document.querySelector(".slider-container input") as HTMLInputElement;
                 if(input) {
                     input.max = periods[activePlanet].toString();
                 }
                 var startDateE = document.querySelector(".slider-container .date.start") as HTMLInputElement;
                 var nowDateE = document.querySelector(".slider-container .date.now") as HTMLInputElement;
                 var endDateE = document.querySelector(".slider-container .date.end") as HTMLInputElement;
+                let prevEarthAngle = 0;
+                let prevPlanetAngle = 0;
+
+                epivot.rotate(Axis.Y, Math.floor((start_date.getTime() - begDate.getTime()) / 86400000)  * speeds["earth"], Space.WORLD);
+                
+                ppivot.rotate(Axis.Y, Math.floor((start_date.getTime() - begDate.getTime()) / 86400000) * speeds[activePlanet], Space.WORLD);
+
                 input.addEventListener("change", () => {
                     now_date.setTime(start_date.getTime() + parseInt(input.value) * 86400000);
                     if(nowDateE) {  
                         nowDateE.innerText = formatDate(now_date);
+                        let angle = parseInt(input.value) * speeds["earth"];
+                        epivot.rotate(Axis.Y, angle - prevEarthAngle, Space.WORLD);
+                        prevEarthAngle = angle;
+                        
+                        angle = parseInt(input.value) * speeds[activePlanet];
+                        ppivot.rotate(Axis.Y, angle - prevPlanetAngle, Space.WORLD);
+                        prevPlanetAngle = angle;
+                        if(spacecraft)
+                            spacecraft.position = points[Math.floor(parseInt(input.value) / periods[activePlanet] * 359)];
                     }
                 });
                 if(startDateE && nowDateE && endDateE) {
@@ -1023,8 +1228,8 @@ class App {
                         if(content && data) {
                             content.innerHTML = "";
                             content.innerHTML += `<img class="img" src='/assets/${activePlanet}${parseInt(pickResult.pickedMesh.name) + 1}.jpg' />`;
-                            content.innerHTML += `<div class="number"><label class="f">Latitude</label><label class="l">${site.latitude}</label></div>`;
-                            content.innerHTML += `<div class="number last"><label class="f">Longitude</label><label class="l">${site.longitude}</label></div>`;
+                            content.innerHTML += `<div class="number"><label class="f">Latitude</label><label class="l">${site.latitude}N</label></div>`;
+                            content.innerHTML += `<div class="number last"><label class="f">Longitude</label><label class="l">${site.longitude}W</label></div>`;
                             content.innerHTML += `<div class="text">${site.details}</div>`;
                             var btns = document.querySelector(".buttons") as HTMLElement;
                             btns.style.display = "none";
